@@ -944,27 +944,12 @@
 </script>
 
 
-
+<!-- New version updating -->
 <script type="text/javascript">
-  function getCartItems() {
-    let cartCount = 0;
-    try {
-      // if (!uStore.Common.BLL.CustomerInfo.Current.IsAnonymous) {
-      cartCount = uStoreAPI.OrderProduct.GetOrderProductList(uStoreAPI.Order.GetUserCartId(uStore.GenParams.StoreID, uStore.Common.BLL.CustomerInfo.Current.UserID), false).Length;
-      // }
-    } catch (err) {
-      console.log(err)
-      return null;
-    }
-    return cartCount;
-  }
+  $(document).ready(function () {
+    $(".FormLabel").remove();
+    $('.fileAttachDropFilesHere').html('<div class="upload_file"><img class="upload_file_img"/><div class="upload_file_text">לחצו כאן להעלאת הקובץ</div></div>')
+    $('.uStoreLegacy-paddingBottom2').html('<span class="fill-to-size-text">התאמה פרופורציונלית של הקובץ ל- 50X70</span> ')
 
-  $("document").ready(function () {
-    console.log("HEREEERE")
-    console.log(getCartItems())
-    console.log(getCartItems())
-    console.log(getCartItems())
-    console.log(getCartItems())
-    console.log(getCartItems())
   });
 </script>

@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        if ($('.fileAttachDropFilesHere').length) {
+            $('.BasicDialogContainer').addClass("hiddenUpload");
+        }
+
+        $('.mainAreaFooterFullWidth').addClass("fixedFooterCustom");
+
+        console.log("this is the reference:" + document.referrer);
+
+
+        $('#ctl00_cphMainContent_trWizardStepsNav').parents("table").addClass("previewBox");
+
+        var clonedElm = $('.subtitleProductName').clone();
+        var parentElm = $('.container').parent();
+        $(clonedElm).prependTo(parentElm);
+        $('.subtitleProductName').eq(1).remove();
+        $('.subtitleProductName').html("הזמנת פוסטרים");
+        $('.next a').html('לשלב הבא<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/left_arr.png">');
+        $('.finish').hide();
+        $('.back').hide();
+
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc14239_lblDial').parent().find('.Error').remove();
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc14238_LblDial').parent().find('.Error').remove();
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc14239_lblDial').parent().css("float", "right");
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc14239_lblDial').html("בחירת קובץ");
+        $('#ctl00_cphMainContent_ucDialCustomization_lblcustomizationTab').html("העלאת קובץ");
+
+
+
+        // Event 2:  File upload->Finish place order
+        $("#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonNext").click(function () {
+            if ($('.FileAttachmentList li').length != 0) {
+                fbq('track', 'CustomizeProduct');
+                // alert("2. Event CustomizeProduct fired!");
+            }
+        });
+
+    });
+
+</script>
