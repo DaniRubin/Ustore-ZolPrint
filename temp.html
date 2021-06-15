@@ -1,0 +1,945 @@
+<!-- Hotjar Tracking Code for www.zolprint.co.il -->
+<script>
+    (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+        h._hjSettings = { hjid: 2123088, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script'); r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+
+
+
+<!-- *************************************************************************************** -->
+<!-- Facebool Pixel -->
+<!-- *************************************************************************************** -->
+<!-- Facebook Pixel Code -->
+<meta name="facebook-domain-verification" content="j81vzuiepvpl5zruedumg2o0ofobhf" />
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '497457848043067');
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=497457848043067&ev=PageView&noscript=1" />
+</noscript>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        setTimeout(function () {
+            // Event 4:  Cart->Payment
+            $("#ctl00_cphMainContent_BtnSubmit").click(function (e) {
+                if ($("#ctl00_cphMainContent_lblSubTotalTax").length) {
+                    moneyAmount = $("#ctl00_cphMainContent_lblSubTotalTax").html();
+                    moneyAmount = moneyAmount.replace(/[^a-zA-Z0-9 ],/g, "");
+                    moneyAmount = moneyAmount.replace(/[,]/g, "");
+                    moneyAmount = moneyAmount.split('.')[0];
+                    moneyAmount = parseInt(moneyAmount);
+                    if (moneyAmount > 20) {
+                        fbq('track', 'AddPaymentInfo')
+                        // alert("4. Event AddPaymentInfo fired!");
+                    }
+                }
+            });
+
+            // Event 5:  Payment->Final Payment
+            if ($('#ctl00_cphMainContentFooter_btnCheckout').length != 0) {
+                if (!document.referrer.includes('checkout-payment-submission') && !document.referrer.includes('CheckoutPaymentSubmission')) {
+                    fbq('track', 'InitiateCheckout')
+                    // alert("5. Event InitiateCheckout fired!");
+                }
+            }
+
+            // Event 6:  Final Payment-> Purchase
+            $("#ctl00_cphMainContentFooter_btnCheckout").click(function (e) {
+                moneyAmount = $("#ctl00_cphMainContent_ucOrderPrice_lblTotal").html();
+                moneyAmount = moneyAmount.replace(/[^a-zA-Z0-9 ],/g, "");
+                moneyAmount = moneyAmount.replace(/[,]/g, "");
+                moneyAmount = moneyAmount.split('.')[0];
+                moneyAmount = parseInt(moneyAmount);
+                fbq('track', 'Purchase', { value: moneyAmount, currency: 'ILS' });
+                // alert("6. Event Purchase fired! - money amount is " + moneyAmount);
+            });
+
+            // Event 7: After Final Page Purchase
+            var urlAddress = window.location.href;
+            if (urlAddress.includes("checkout-complete")) {
+                fbq('track', 'Finished_Shoping');
+                // alert("7. Event Purchase fired!");
+            };
+        }, 500);
+    })
+</script>
+<!-- End Facebook Pixel Code -->
+
+
+
+<!-- *************************************************************************************** -->
+<!-- AFTER ORDER - MESSAGE DISPLAYED -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Gets the URL
+        var urlAddress = window.location.href;
+
+        // After an order is made -  display this message
+        if (urlAddress.includes("checkout-complete")) {
+            setTimeout(function () {
+                $('<div class="mainareaFullWidth disclaimer_mobile"><div id="disclaimer_box" style="border: 1px solid #7ebe30;border-radius: 5px;padding: 34px 92px;background: linear-gradient(75deg, #fdfdfd, #ffffff);margin-top: 109px;background-blend-mode: color-burn;"><p><div class="info"><img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/published/Assets/check.png"><h1>  ‎ ‎מידע חשוב לשירותך   ‎ ‎</h1>	 <div class="left_text_disc"><span>עם סיום הדפסת ההזמנה ואריזתה, יישלחו ללקוח אימייל או/ו SMS המודיעים לו על כך<br></span></div></div><div class="info"><img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/published/Assets/check.png"><div class="left_text_disc"><span>הזמנות באיסוף עצמי</span> - הדפסה עד 24 שעות מרגע ההזמנה.<br>את ההזמנה ניתן לאסוף בימים א עד ה בין השעות 09:00 ל-18:00 בכתובת:<br>הסיבים 43, פתח תקווה - בניין C, קומת קרקע - חברת "אייפרינט".<br></div></div><div class="info"><img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/published/Assets/check.png">	 <div class="left_text_disc"><span>הזמנות במשלוח</span> – משלוח עד 48 שעות לכל רחבי הארץ למעט אילת ואזורים מרוחקים.<br>מס מעקב למשלוח יישלח ללקוח עם אריזת ההזמנה.</div></div><div class="info"><img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/published/Assets/check.png">	 <div class="left_text_disc">לכל שאלה או תקלה הקשורה בהזמנתך, ניתן לפנות אלינו דרך עמוד "<a href="https://www.zolprint.co.il/poster/he-IL/Contact/" target="_blank">צרו קשר</a>" באתרנו.</div></div></p></div></div> <div style="clear:both;"></div>').insertAfter(".mainAreaFooterFullWidth");
+            }, 300);
+        }
+    })
+</script>
+
+<!-- *************************************************************************************** -->
+<!--  ON LOGIN / REGISTER - SCROLL -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var x = $('#ctl00_cphMainContent_btnLogin').attr("href");
+        var y = $('#ctl00_cphMainContent_btnRegister').attr("href");
+        var onReg = false;
+        var click = false;
+        $('#ctl00_cphMainContent_lblRegisterTitle').on("click", function () {
+            click = true;
+            onReg = true;
+        });
+
+        $(window).scroll(function () {
+            var aTop = 0;
+            if ($(this).scrollTop() == aTop) {
+                onReg = false;
+            }
+            else {
+                if (click) {
+                    onReg = true;
+                }
+            }
+        });
+        window.addEventListener('keydown', function (event) {
+            if (onReg) {
+                if (event.keyCode === 13) {
+                    $("#ctl00_cphMainContent_btnRegister")[0].click();
+                    $('html,body').animate({ scrollTop: 9999 }, 'slow');
+                    event.preventDefault();
+                    return false;
+                }
+            }
+            else {
+                if (event.keyCode === 13) {
+                    $("#ctl00_cphMainContent_btnLogin")[0].click();
+                    $('html,body').animate({ scrollTop: 0 }, 'slow');
+                    event.preventDefault();
+                    return false;
+                }
+            }
+        });
+
+
+    })
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!--  CART PAGE -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            if ($('.CheckOutPage').length) {
+                // Get moneyAmount as the toal amount of money
+                var moneyAmount = "";
+                if ($("#ctl00_cphMainContent_lblSubTotalTax").length) {
+                    moneyAmount = $("#ctl00_cphMainContent_lblSubTotalTax").html();
+                    moneyAmount = moneyAmount.replace(/[^a-zA-Z0-9 ],/g, "");
+                    moneyAmount = moneyAmount.replace(/[,]/g, "");
+                    moneyAmount = moneyAmount.split('.')[0];
+                    moneyAmount = parseInt(moneyAmount);
+                }
+                else {
+                    moneyAmount = $("#ctl00_cphMainContent_lblSubTotal").html();
+                    moneyAmount = moneyAmount.replace(/[^a-zA-Z0-9 ],/g, "");
+                    moneyAmount = moneyAmount.replace(/[,]/g, "");
+                    moneyAmount = moneyAmount.split('.')[0];
+                    moneyAmount = parseInt(moneyAmount);
+                    moneyAmount = moneyAmount * (1.17);
+                }
+                // Validate moneyAmount is greater then 20 - minimum amount value
+                if (moneyAmount < 20) {
+                    $("#ctl00_cphMainContent_BtnSubmit").attr("href", "javascript:void(0);");
+                    $("#ctl00_cphMainContent_BtnSubmit").click(function (e) {
+                        alert('המינימום הנדרש לביצוע הזמנה הוא 20 ש"ח');
+                        e.preventDefault();
+                        return false;
+                    });
+                }
+                console.log("this is the val.. " + x);
+            }
+        }, 500);
+    })
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- ORDER PAGE -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+
+    function validatePhone(txtPhone) {
+        var a = document.getElementById(txtPhone).value;
+        var filterM = /^05/g;
+        var filter = /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{4}|\d{3})$/gm;
+        var filterB = /^(?:\+?\d{3}[ -]?\d{3}[ -]?\d{4}|\d{3})$/gm;
+        if (filterM.test(a)) {
+            if (filterB.test(a)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            if (filter.test(a)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+    }
+
+    $(document).ready(function () {
+        if ($("#ctl00_cphMainContent_lblOrderDetails").html() == "פרטי משלוח") {
+            //gets all data
+            var fname = xmp.sdk.storeFrontParams.currentUser["firstName"];
+            var lname = xmp.sdk.storeFrontParams.currentUser["lastName"];
+            if (lname == "") { lname = ""; }
+            var phone = xmp.sdk.storeFrontParams.currentUser["mobileNumber"];
+            if (phone == "****") { phone = ""; }
+            var bname = xmp.sdk.storeFrontParams.currentUser["custom2"];
+            if (bname == "****") { bname = ""; }
+            var bid = xmp.sdk.storeFrontParams.currentUser["custom1"];
+            if (bid == "****") { bid = ""; }
+
+            //Display new form 
+            if ($(window).width() > 1216) {
+                $('.mainareaFullWidth').prepend('<div id="details-full"><span class="details-error"></span><span class="boxHeading">פרטי הלקוח</span><div id="details-wrapper"><div class="details-form"><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם פרטי:</span><div><input type="text" id="fname" value="' + fname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם משפחה:</span><div><input type="text" id="lname" value="' + lname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> טלפון סלולרי:</span><div><input type="text" id="phone" value="' + phone + '"><span class="input-err-desc"></span></div></div></div><label for="billingif">במידה ופרטי הלקוח לחשבונית שונים מפרטים אלו<input type="checkbox" id="billingif"></label><div class="details-form" id="details-form-hidden"><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם עבור חשבונית מס:</span><div><input type="text" id="bname" value="' + bname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> מספר ח.פ:</span><div><input type="text" id="bid" value="' + bid + '"><span class="input-err-desc"></span></div></div></div></div><div id="update-btn-client"><span id="update-msg"></span><a href="#">שמירת פרטי לקוח</a></div></div>');
+            }
+            else {
+                $('.container').prepend('<div id="details-full"><span class="details-error"></span><span class="boxHeading">פרטי הלקוח</span><div id="details-wrapper"><div class="details-form"><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם פרטי:</span><div><input type="text" id="fname" value="' + fname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם משפחה:</span><div><input type="text" id="lname" value="' + lname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> טלפון סלולרי:</span><div><input type="text" id="phone" value="' + phone + '"><span class="input-err-desc"></span></div></div></div><label for="billingif">במידה ופרטי הלקוח לחשבונית שונים מפרטים אלו<input type="checkbox" id="billingif"></label><div class="details-form" id="details-form-hidden"><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> שם עבור חשבונית מס:</span><div><input type="text" id="bname" value="' + bname + '"><span class="input-err-desc"></span></div></div><div class="ShippingItemContainer"><span class="boxSubHeading"><strong>*</strong> מספר ח.פ:</span><div><input type="text" id="bid" value="' + bid + '"><span class="input-err-desc"></span></div></div></div></div><div id="update-btn-client"><span id="update-msg"></span><a href="#">שמירת פרטי לקוח</a></div></div>');
+            }
+
+            // Fills the details from earlier form.
+            if ($('#ctl00_cphMainContent_BillingAddress_lblHeading').html() == "הכתובת הנבחרת") {
+                document.getElementById("fname").defaultValue = $('#ctl00_cphMainContent_BillingAddress_lblPersonName').html();
+                document.getElementById("phone").defaultValue = $('#ctl00_cphMainContent_BillingAddress_lblCity').html();
+                document.getElementById("lname").defaultValue = $('#ctl00_cphMainContent_BillingAddress_lblAddress1').html();
+                document.getElementById("bname").defaultValue = $('#ctl00_cphMainContent_BillingAddress_lblCompany').html();
+                document.getElementById("bid").defaultValue = $('#ctl00_cphMainContent_BillingAddress_lblAddress2').html();
+                $('#update-btn-client a').html("עדכון פרטי לקוח");
+            }
+
+
+            // Remove error message on keyup change paste focus event 
+            $('#details-wrapper .ShippingItemContainer').each(function () {
+                $(this).on('keyup change paste focus', 'input', function () {
+                    $(this).attr('value', $(this).val());
+                    $(this).removeClass("input-error");
+                    $(this).parent().find(".input-err-desc").html("");
+                });
+            });
+
+
+            //Handles customer details - payment bid 
+            var flag = "normal";
+            $('#billingif').click(function () {
+                $('#details-form-hidden').toggle();
+                if ($('#billingif').is(':checked')) {
+                }
+                else {
+                    if ($('#bname').val() != '' || $('#bid').val() != '') {
+                        flag = "clear";
+                        $('#update-btn-client a').click();
+                        var iframe = $('#legacy-iframe', parent.document);
+                        iframe.removeClass("savedMsg");
+                        iframe.removeClass("updateMsg");
+                        iframe.addClass("noupdateMsg");
+                    }
+                }
+
+            });
+
+            if ($('#bname').val() != '' || $('#bid').val() != '') {
+                $('#billingif').click();
+            }
+
+            function createProblemCircle(id, problemText) {
+                $(id).addClass("input-error");
+                $(id).parent().find(".input-err-desc").html(problemText);
+            }
+
+            if ($('#ctl00_cphMainContent_BillingAddress_lnkAddAddress').length) {
+                // Remove old part
+                $('#ctl00_cphMainContent_trBillingAddress').hide();
+                // Validate new part
+                if ($('#ctl00_cphMainContentFooter_btnNext').is(':visible')) {
+                    $('#update-btn-client a').on("click", function () {
+                        // If update button clicked - validates all the data 
+                        if (validatePhone('phone') && $('#fname').val() != '' && $('#lname').val() != '' && (($('#billingif').is(':checked') && $('#bid').val() != '' && $('#bname').val() != '') || !($('#billingif').is(':checked')))) {
+                            setTimeout(function () {
+                                $(".ui-widget-overlay").remove();
+                                $('.BasicDialogContainer').addClass("billingPopup");
+                            }, 20);
+
+                            if ($('#ctl00_cphMainContent_BillingAddress_lnkAddAddress').html() == "הגדר כתובת חיוב") {
+                                $('#ctl00_cphMainContent_BillingAddress_lnkAddAddress').click();
+                                var iframe = $('#legacy-iframe', parent.document);
+                                iframe.addClass("savedMsg");
+                            }
+                            else {
+                                var iframe = $('#legacy-iframe', parent.document);
+                                iframe.removeClass("savedMsg");
+                                iframe.addClass("updateMsg");
+                                $('#ctl00_cphMainContent_BillingAddress_lnkEditAddress').click();
+                            }
+                            //loads the update address window with content
+                            function onLoadIframe() {
+                                if ($('#wndCustomerAddress').length >= 1) {
+                                    var iframe = document.getElementById('wndCustomerAddressFrame');
+                                    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                                    var finput = $('#fname').val();
+                                    var linput = $('#lname').val();
+                                    var pinput = $('#phone').val();
+                                    var cinput = $('#bname').val();
+                                    var binput = $('#bid').val();
+                                    if (flag != "clear") {
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtPersonName").attr("value", finput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtCompany").val(cinput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtAddress1").val(linput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtAddress2").val(binput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtCity").val(pinput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtZip").val("null");
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtPhone").val("null");
+                                    }
+                                    else {
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtPersonName").attr("value", finput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtCompany").val(" ");
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtAddress1").val(linput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtAddress2").val(" ");
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtCity").val(pinput);
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtZip").val("null");
+                                        $(innerDoc).find("#ctl00_cphMainContent_ucAddress_txtPhone").val("null");
+                                    }
+                                    setTimeout(function () {
+                                        $(innerDoc).find('#ctl00_cphFooterButtons_btnSubmit')[0].click();
+
+                                    }, 550);
+                                }
+                            }
+                            $('iframe#wndCustomerAddressFrame').load(function () {
+                                onLoadIframe();
+                            });
+
+
+                        }
+                        // If update button clicked - data is not valid 
+                        else {
+                            // Add red error circle around every problem field
+                            if (!validatePhone('phone') || $('#phone').val() == '') {
+                                if (!validatePhone('phone')) createProblemCircle('#phone', "<br>מס' טלפון לא תקין")
+                                if ($('#phone').val() == '') createProblemCircle('#phone', "<br>מס' טלפון ריק")
+                            }
+                            else {
+                                $('#phone').parent().find(".input-err-desc").html("");
+                            }
+                            if ($('#fname').val() == '') {
+                                createProblemCircle('#fname', "<br>שם פרטי ריק")
+                            }
+                            else {
+                                $('#fname').parent().find(".input-err-desc").html("");
+                            }
+                            if ($('#lname').val() == '') {
+                                createProblemCircle('#lname', "<br>שם המשפחה ריק")
+                            }
+                            else {
+                                $('#lname').parent().find(".input-err-desc").html("");
+                            }
+                            if (($('#billingif').is(':checked') && $('#bid').val() == '')) {
+                                createProblemCircle('#bid', "<br>מספר ח.פ ריק")
+                            }
+                            else {
+                                $('#bid').parent().find(".input-err-desc").html("");
+                            }
+                            if (($('#billingif').is(':checked') && $('#bname').val() == '')) {
+                                createProblemCircle('#bname', "<br>שם עבור חשבונית ריק")
+                            }
+                            else {
+                                $('#bname').parent().find(".input-err-desc").html("");
+                            }
+                            $('#update-msg').html('');
+                        }
+                    });
+
+                }
+                setTimeout(function () {
+                    $('.BasicDialogContainer').removeClass("billingPopup");
+                }, 4000);
+
+            }
+
+
+
+
+        }
+
+        // After update button click - display message
+        var iframe = $('#legacy-iframe', parent.document);
+        if (iframe.hasClass("savedMsg")) {
+            $('#update-msg').html("פרטי הלקוח נשמרו בהצלחה");
+        }
+        else if (iframe.hasClass("updateMsg")) {
+            $('#update-msg').html("פרטי הלקוח עודכנו בהצלחה");
+        }
+        else {
+            $('#update-msg').html("");
+        }
+
+        // Remove ILS from delivery payment money
+        $("#ctl00_cphMainContent_cmbServices").find("option").each(function (index, option) {
+            $(option).html($(option).html().replace(/ILS/g, ''));
+        });
+
+    })
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- DELIVERY ADDRESS FORM DIALOG -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ctl00_cphMainContent_ShippingAddress_lnkAddAddress, #ctl00_cphMainContent_ShippingAddress_lnkEditAddress').on("click", function () {
+            setTimeout(function () {
+                var iframe = document.getElementById('wndCustomerAddressFrame');
+                var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                var city = $(innerDoc).find(".Address_City");
+                var street = $(innerDoc).find(".Address_Address1");
+
+                function httpGet(theUrl) {
+                    var xmlHttp = new XMLHttpRequest();
+                    // Firefox 3.5 and Safari 4
+                    xmlHttp.open('GET', theUrl, false);
+                    xmlHttp.send();
+                    return xmlHttp;
+                }
+
+                $(innerDoc).find('.Address_Address1').insertBefore(city);
+                //	$('<div class="listhandle" id="streetlist"><ul></ul></div>').insertAfter(street);	
+                $(innerDoc).find('.Address_City').insertBefore(street);
+                //$('<div class="listhandle" id="citylist"><ul></ul></div>').insertAfter(city);	
+                $(innerDoc).find('.Address_Address2').insertAfter(street);
+                street.append('<div class="listhandle" id="streetlist"><ul></ul></div>');
+                city.append('<div class="listhandle" id="citylist"><ul></ul></div>');
+
+                console.log("replace");
+                if ($('#wndCustomerAddress').length >= 1) {
+                    var city = $(innerDoc).find(".Address_City");
+                    var street = $(innerDoc).find(".Address_Address1");
+                    street.find("input").attr("autocomplete", "none");
+
+                    city.find("input").attr("autocomplete", "none");
+                    var getLi = city.find("#citylist ul");
+                    var getLiSt = street.find("#streetlist ul");
+
+                    city.on('keyup change paste focus', 'input', function () {
+                        $(this).attr('value', $(this).val());
+                        $(this).removeClass("input-error");
+                        var inputVal = $(this).attr('value');
+                        if ($(this).attr('value').length >= 3) {
+                            var theUrl = "https://iprinthub.iprintd.com:30443/lookup/getAddress/city?city=" + $(this).attr('value');
+                            var x = httpGet(theUrl);
+                            var obj = JSON.parse(x.response);
+
+                            for (var i = 0; i < obj.length; i++) {
+                                if (getLi.text().indexOf(obj[i].cityName) !== -1) {
+
+                                }
+                                else {
+                                    $(innerDoc).find("#citylist ul").append("<li>" + obj[i].cityName + "</li>");
+                                }
+                            }
+                            getLi.find("li").each(function () {
+                                if ($(this).text().indexOf(inputVal) > -1) {
+                                }
+                                else {
+                                    $(this).remove();
+                                }
+
+                                $(this).mousedown(function () {
+                                    city.find("input").val($(this).text());
+                                });
+
+                            });
+                            if (getLi.is(':empty')) {
+                                city.find("input").val("");
+                                onBlur();
+                            }
+                            else {
+                                $(innerDoc).find('#citylist').fadeIn();
+                            }
+
+
+                        }
+                        else {
+                            $(innerDoc).find("#citylist ul").html("");
+                        }
+                        /*
+                        if(!getLi.hasClass("clicked") && city.find("input").val().length >4){
+                                city.find("input").val("");
+                                onBlur();
+                        }
+                        else {
+                                getLi.removeClass("clicked");
+                        }
+                        */
+                    });
+                    function onBlur() {
+                        $(innerDoc).find('#citylist').fadeOut();
+                        $(innerDoc).find("#citylist ul").html("");
+                    }
+
+                    city.find("input").blur(function () {
+                        var currentVal = city.find("input").val();
+                        var exist = 0;
+                        getLi.find("li").each(function () {
+                            if ($(this).text() === currentVal) {
+                                ++exist;
+                            }
+                            if (exist == 0) {
+                                city.find("input").val("");
+                                exist = 0;
+                            }
+                            console.log(exist);
+                        });
+                        onBlur();
+                        if (city.find("input").val().length < 3) {
+                            city.find("input").val("");
+                            street.find("input").val("");
+                        }
+                    });
+
+                    // End of city section
+
+                    street.on('keyup change paste focus', 'input', function () {
+                        $(this).attr('value', $(this).val());
+                        $(this).removeClass("input-error");
+                        var inputVal = $(this).attr('value');
+                        if ($(this).attr('value').length >= 3) {
+                            if (city.find("input").val().length >= 3) {
+                                var theUrl = "https://iprinthub.iprintd.com:30443/lookup/getAddress/street?city=" + city.find("input").val() + "&street=" + $(this).attr('value');
+                                var x = httpGet(theUrl);
+                                var obj = JSON.parse(x.response);
+                                console.log("this is the obj+" + obj);
+                                for (var i = 0; i < obj.length; i++) {
+                                    if (getLiSt.text().indexOf(obj[i].streetName) !== -1) {
+
+                                    }
+                                    else {
+                                        $(innerDoc).find("#streetlist ul").append("<li>" + obj[i].streetName + "</li>");
+                                    }
+                                }
+                                getLiSt.find("li").each(function () {
+                                    if ($(this).text().indexOf(inputVal) > -1) {
+                                    }
+                                    else {
+                                        $(this).remove();
+                                        console.log("removeed:");
+                                        console.log($(this).text());
+                                    }
+
+                                    $(this).mousedown(function () {
+                                        street.find("input").val($(this).text());
+                                    });
+
+                                });
+                                if (getLiSt.is(':empty')) {
+                                    street.find("input").val("");
+                                    onBlurSt();
+                                }
+                                else {
+                                    $(innerDoc).find('#streetlist').fadeIn();
+                                }
+
+                                console.log("not empty city!");
+                            }
+                            else {
+                                street.find("input").val("");
+                                console.log(city.find("input").val());
+                                console.log("its empty dont edit input.");
+                            }
+                        }
+
+                    });
+                    function onBlurSt() {
+                        $(innerDoc).find('#streetlist').fadeOut();
+                        $(innerDoc).find("#streetlist ul").html("");
+                    }
+                    street.find("input").blur(function () {
+                        var currentVal = street.find("input").val();
+                        var exist = 0;
+                        getLiSt.find("li").each(function () {
+                            if ($(this).text() === currentVal) {
+                                ++exist;
+                            }
+                            if (exist == 0) {
+                                street.find("input").val("");
+                                exist = 0;
+                            }
+                            console.log(exist);
+                        });
+
+                        onBlurSt();
+                        if (street.find("input").val().length < 3) {
+                            street.find("input").val("");
+                        }
+                    });
+                }
+            }, 420);
+        });
+    })
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- REMOVAL OF RANDOM COMPONENTS -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ctl00_cphMainContent_trPaymentMethods').remove();
+
+        // *********************************************************** -->
+        // Remove buy-later
+        $('.ShoppingCartGrid_Column_Buttons').each(function () {
+            $(this).parent().find('a[title="לרכישה מאוחר יותר"]').remove();
+        });
+
+        // *********************************************************** -->
+        // Remove ILS text from all pages except last page - before payment
+        if (!$('.checkoutSubmissionOrderPriceContainerContainer').length) {
+            if ($("#fullpage").text().includes('₪') && !$('.ShippingItemContainer').length) {
+                $("#fullpage").contents().each(function () {
+                    if (this.nodeType === 3) this.nodeValue = $.trim($(this).text()).replace(/ILS/g, "")
+                    if (this.nodeType === 1) $(this).html($(this).html().replace(/ILS/g, ""))
+                })
+            }
+
+            if ($(".container").text().includes('₪') && !$('.ShippingItemContainer').length) {
+                $(".container").contents().each(function () {
+                    if (this.nodeType === 3) this.nodeValue = $.trim($(this).text()).replace(/ILS/g, "")
+                    if (this.nodeType === 1) $(this).html($(this).html().replace(/ILS/g, ""))
+                })
+            }
+        }
+        // *********************************************************** -->
+        $('.rightElement').each(function () {
+            $(this).remove();
+        });
+        $('.leftElement').eq('1').remove();
+
+
+        $("#ctl00_cphMainContent_btnRecalculate").hide();
+        $("#ctl00_cphMainContent_trPricingTableLink").hide();
+        $("#ctl00_cphMainContent_ShippingAddress_lblState").hide();
+
+    })
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- SMALL RANDOM FUNCTIONS -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        // *********************************************************** -->
+        // Own pickup option
+        if ($("#radShippingAddressList_10008:checked").val() == "radShippingAddressList_10008") {
+            $('#ctl00_cphMainContent_divShippingItems .ShippingItemContainer').eq(1).hide();
+            $('#ctl00_cphMainContent_ShippingAddress_lblHeading').html("כתובת איסוף");
+        }
+        // *********************************************************** -->
+        // Fix selected address and shows it
+        setTimeout(function () {
+            $("#ctl00_cphMainContent_ShippingAddress_ddlAddresses option").each(function () {
+                var optionContent = $(this).text();
+                var result = optionContent.replace(',', ' ');
+                $(this).html(result);
+                $(this).attr("title", result);
+            });
+            // Fix current val
+            var finalSelect = $("#ctl00_cphMainContent_ShippingAddress_lblAddress1").text() + ", " + $("#ctl00_cphMainContent_ShippingAddress_lblCity").text() + ", " + $("#ctl00_cphMainContent_ShippingAddress_lblZip").text() + ", " + $("#ctl00_cphMainContent_ShippingAddress_lblCountry").text();
+            $('#ctl00_cphMainContent_ShippingAddress_ddlAddresses option:selected').html(finalSelect);
+            $('#ctl00_cphMainContent_ShippingAddress_ddlAddresses option:selected').attr("title", finalSelect);
+        }, 400);
+
+        // *********************************************************** -->
+        // error handling in last validation
+        if ($('.details-error').length) {
+            $('#validationSummary').addClass("hideError");
+        }
+        $('.checkoutFinalNext a').on("click", function () {
+            setTimeout(function () {
+                if ($('#validationSummary').is(':visible')) {
+                    $('.details-error').html('');
+                    var i;
+                    var errors = $('#validationSummary ul li').length;
+                    //Adds the errors to the error list
+                    for (i = 0; i < errors; i++) {
+                        $('.details-error').append($('#validationSummary ul li').eq(i).html() + "<br>");
+                    }
+                }
+            }, 200);
+            var iframe = $('#legacy-iframe', parent.document);
+            iframe.addClass("scrollTop");
+            if (iframe.hasClass("scrollTop")) {
+                if ($(window).width() > 1216) {
+                    $('html, body', window.parent.document).animate({ scrollTop: 0 }, 'slow');
+                    iframe.addClass("goTop");
+                }
+            }
+            else {
+                iframe.removeClass("goTop");
+            }
+        });
+        // *********************************************************** -->
+        // If There is error in validation step print message in hebrow
+        if ($('#validationSummary ul li').html() == "Clearing Cancelled") {
+            $('#validationSummary ul li').html("העסקה בוטלה");
+        }
+        else if ($('#validationSummary ul li').html() == "Clearing Failed") {
+            $('#validationSummary ul li').html("העסקה נכשלה. יש לבדוק היטב את פרטי כרטיס האשראי שהוזנו");
+        }
+        // *********************************************************** -->
+        // Changes title to be our content
+        if ($('.subTitleProductNameExists').length) {
+            $('#searcharea #ctl00_containerPageProductName').html("הזמנת פוסטרים");
+        }
+        else {
+            $('.subtitleProductName').remove();
+        }
+
+        // *********************************************************** -->
+        // Handles redirection
+        if (document.title.indexOf("רכישה - סיכום ההזמנה") > 1 && //we are on the order summary page 
+            $("#ctl00_cphMainContentFooter_btnNext").length > 0 && //there is a next button on the page
+            $("#ctl00_cphMainContent_BillingAddress_ddlAddresses").val() > 0) {  //the billing address is already set
+            document.location.href = $("#ctl00_cphMainContentFooter_btnNext").attr("href");
+        }
+
+
+    })
+
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- ALL CONTENT -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // NOT NEEDED ? DANI
+        // $("#tblSignIn").bind("keypress", function (e) {
+        //   if (e.keyCode == 13) {
+        //     alert("crazy");
+        //     return false; // ignore the default event
+        //   }
+        // });
+
+
+        // <!-- *************************************************************************************** -->
+        // <!-- NOT FOUND -->
+        // <!-- *************************************************************************************** -->
+        // Refresh according to checkbox change state
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox').change(function () {
+            setTimeout(function () {
+                $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+            }, 150);
+        });
+        $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox");
+
+        if ($(window).width() < 1199) {
+            $('.uStoreLegacy-padding5_37_5_0').parents(".toggled").find("td").eq(0).remove();
+        }
+
+        $('#ctl00_cphMainContent_ucOrderPrice_lnkTaxDetails').attr("href", "javascript:void(0);");
+        $('#ctl00_cphMainContent_ucOrderPrice_lnkTaxDetails').removeAttr("onclick");
+
+        $('#ctl00_cphMainContent_ucOrderPrice_lnkTaxDetails').parent().html('מע"מ');
+        $('#ctl00_cphMainContent_lnkTaxDetails').parent().html('מע"מ');
+
+
+        if ($('.ShippingAddressWrapper').length || $('.checkoutFinalCheckout').length) {
+            $('.mainAreaFooterFullWidth').addClass("footerFixed");
+        }
+
+        // ADD Street num to main street
+        $('.AddressBox_Address1').append(' ' + $('#ctl00_cphMainContent_ShippingAddress_lblAddress2').text());
+        $('.AddressBox_Address2').css({ "color": "#fff", "line-height": "4px" });
+        $('.AddressBox_Address2').parents("tr").css("font-size", "3px");
+        $('#ctl00_cphMainContent_ucAddress_lblAddress2').append('<span class="RequiredFieldMarker">*</span>');
+
+
+        // GUESS
+        // Adds to alert shipping danger class if shipping service options available
+        if ($('.shippingServicesWrapper').length || $('#ctl00_cphMainContent_lblPaymentType').length) {
+            setTimeout(function () {
+                $('.alert').addClass("shipping-danger");
+            }, 500);
+        }
+
+        // Probably adds the alert to mobile window
+        if ($(window).width() < 1216) {
+            $('#validationSummary').removeClass("hideError");
+            $('.details-error').addClass("mobileHide");
+            if ($("#ctl00_cphMainContent_ShippingAddress_lnkAddAddress").html() == "הגדר כתובת משלוח") {
+                $('.AddressBox_Checkbox').parents("span.uStoreLegacy-width100percent").eq(0).addClass("no-fix-width-box");
+                $('#ctl00_cphMainContent_ShippingAddress_lnkAddAddress').addClass("no-padding-box");
+            }
+            if ($('#ctl00_cphMainContent_lblShippingHeader').html() == "פריטים בהזמנה") {
+                $('#ctl00_cphMainContent_lblShippingHeader').parents(".ShippingItemContainer").eq(0).remove();
+            }
+        }
+
+    });
+</script>
+
+
+<!-- *************************************************************************************** -->
+<!-- CREATE-ORDER PAGE -->
+<!-- *************************************************************************************** -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ctl00_cphMainContent_WizardStepsNav_MyList_ctl00_DisplayNameSel').text("מעלים קובץ");
+        $('#ctl00_cphMainContent_WizardStepsNav_MyList_ctl01_DisplayName').text("בוחרים כמות");
+        $('#ctl00_cphMainContent_WizardStepsNav1_MyList_ctl00_DisplayName').text("מעלים קובץ");
+        $('#ctl00_cphMainContent_WizardStepsNav1_MyList_ctl01_DisplayNameSel').text("בוחרים כמות");
+
+        $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').hide();
+        $('#ctl00_cphMainContent_ucDialCustomization_SlideShow_lblPage').hide();
+        $('#ctl00_cphMainContent_lblRoundingComment').hide();
+        $('#ctl00_cphMainContent_ucOrderPrice_lblRoundingAsterix').hide();
+
+
+
+        var ref = document.referrer;
+        if (ref.includes("OrderFinalStep")) {
+            $('.fileAttachDropFilesHere').addClass("fuckit");
+        }
+
+        if (window.location.href.includes("login.aspx") && !(window.location.href.includes("viewmobile=true")) && $(window).width() < 600) {
+            window.location.replace(window.location.href + "&viewmobile=true");
+        }
+
+
+
+        $(document).on('DOMSubtreeModified', "#tdDialCustomization", function () {
+            // code here
+            $('#dvmValidationSummary ul li').each(function () {
+                if ($(this).html().indexOf("אנא הכנס ערך בשדה") >= 0) {
+                    $(this).html("נא לעלות קובץ על מנת להמשיך");
+                    $('.fileAttachDropFilesHere').css({ 'border': '3px solid red', 'border-radius': '5px' });
+                }
+                else {
+                    $('.fileAttachDropFilesHere').css({ 'border': '0', 'border-radius': '0' });
+                }
+            });
+            setTimeout(function () {
+                if ($('#dvmValidationSummary ul li').length >= 1 || $('.FileAttachmentList li').length == 0) {
+                    console.log("error donot continue");
+                    $('.fileAttachDropFilesHere').removeClass("fuckit");
+                    //$('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+
+                }
+                else {
+                    $('.fileAttachDropFilesHere').addClass("fuckit");
+                    console.log("success refresh");
+                    setTimeout(function () {
+                        $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+                    }, 1000);
+                }
+
+                if ($('#dvmValidationSummary ul li').length >= 1 && $('.FileAttachmentList li').length >= 1) {
+                    $('.fileAttachDropFilesHere').addClass("fuckit");
+                }
+
+            }, 400);
+
+        });
+
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // product property dial ids:
+        var ddlAutoCalc = ["10809"]; // array of Dropdown list dial ids
+        var txtAutoCalc = ["10810"]; // array of Text field dial ids
+
+        var pathname = window.location.pathname.toLowerCase();
+        if (pathname.indexOf("orderfinalstep.aspx") > 0) {
+            // update if dropdown quantity changes
+            $("#ctl00_cphMainContent_ddlNumCopies").on('change', function () {
+                autoRecalculate();
+            });
+
+            // update if text input quantity changes
+            $("#ctl00_cphMainContent_txtNumCopies").on('input', function () {
+                //If you use it without a setTimeout() than you could not enter more than one number. The setTimeout() will cause a wait for 1,5 sec after the first number was entered. This way you can enter more numbers and have only after it a autorefresh of the price. 
+                //autoRecalculate(); 
+                setTimeout(autoRecalculate, 1500)
+            });
+
+            //update if drop-down list product properties change
+            $.each(ddlAutoCalc, function (index, value) {
+                $("#ctl00_cphMainContent_ctl11_Duc" + value + "_DropDownList").on('change', function () {
+                    autoRecalculate();
+                });
+            });
+
+            //update if text product properties change
+            $.each(txtAutoCalc, function (index, value) {
+                $("#ctl00_cphMainContent_ctl11_Duc" + value + "_StringTextBox").on('blur', function () {
+                    autoRecalculate();
+                });
+            });
+
+            //update if a gallery list view property is changed
+            $(".FieldOptionItem").on('click', function () {
+                autoRecalculate();
+            });
+        }
+    });
+
+    function autoRecalculate() {
+        if ($("#ctl00_cphMainContent_btnRecalculate").attr("href").length > 0)
+            window.location.href = 'javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$cphMainContent$btnRecalculate", "", true, "", "", false, true))';
+    }
+</script>

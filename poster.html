@@ -776,6 +776,14 @@
     // <!-- NOT FOUND -->
     // <!-- *************************************************************************************** -->
     // Refresh according to checkbox change state
+    $('#ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox').change(function () {
+      setTimeout(function () {
+        $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+      }, 150);
+    });
+    $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox");
+
+    // Refresh according to checkbox change state
     $('#ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox').change(function () {
       setTimeout(function () {
         $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
@@ -783,6 +791,9 @@
     });
     $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox");
 
+
+
+    // ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox
     if ($(window).width() < 1199) {
       $('.uStoreLegacy-padding5_37_5_0').parents(".toggled").find("td").eq(0).remove();
     }
@@ -850,6 +861,10 @@
     var ref = document.referrer;
     if (ref.includes("OrderFinalStep")) {
       $('.fileAttachDropFilesHere').addClass("fuckit");
+      $('.upload_file_text_checked').css("display", "inline-block");
+      $('.upload_file_text').css("display", "none");
+      $('.upload_file_img').addClass("upload_file_img_checked");
+
     }
 
     if (window.location.href.includes("login.aspx") && !(window.location.href.includes("viewmobile=true")) && $(window).width() < 600) {
@@ -873,11 +888,15 @@
         if ($('#dvmValidationSummary ul li').length >= 1 || $('.FileAttachmentList li').length == 0) {
           console.log("error donot continue");
           $('.fileAttachDropFilesHere').removeClass("fuckit");
-          //$('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
-
+          $('.upload_file_text').css("display", "inline-block");
+          $('.upload_file_text_checked').css("display", "none");
+          $('.upload_file_img').removeClass("upload_file_img_checked");
         }
         else {
           $('.fileAttachDropFilesHere').addClass("fuckit");
+          $('.upload_file_text_checked').css("display", "inline-block");
+          $('.upload_file_text').css("display", "none");
+          $('.upload_file_img').addClass("upload_file_img_checked");
           console.log("success refresh");
           setTimeout(function () {
             $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
@@ -886,18 +905,22 @@
 
         if ($('#dvmValidationSummary ul li').length >= 1 && $('.FileAttachmentList li').length >= 1) {
           $('.fileAttachDropFilesHere').addClass("fuckit");
+          $('.upload_file_img').addClass("upload_file_img_checked");
         }
 
       }, 400);
-
     });
-
   });
+
 </script>
 
 <script type="text/javascript">
   $(document).ready(function () {
 
+    function autoRecalculate() {
+      if ($("#ctl00_cphMainContent_btnRecalculate").attr("href").length > 0)
+        window.location.href = 'javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$cphMainContent$btnRecalculate", "", true, "", "", false, true))';
+    }
     // product property dial ids:
     var ddlAutoCalc = ["10809"]; // array of Dropdown list dial ids
     var txtAutoCalc = ["10810"]; // array of Text field dial ids
@@ -937,19 +960,15 @@
     }
   });
 
-  function autoRecalculate() {
-    if ($("#ctl00_cphMainContent_btnRecalculate").attr("href").length > 0)
-      window.location.href = 'javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$cphMainContent$btnRecalculate", "", true, "", "", false, true))';
-  }
 </script>
 
 
 <!-- New version updating -->
 <script type="text/javascript">
   $(document).ready(function () {
-    $(".FormLabel").remove();
-    $('.fileAttachDropFilesHere').html('<div class="upload_file"><img class="upload_file_img"/><div class="upload_file_text">לחצו כאן להעלאת הקובץ</div></div>')
-    $('.uStoreLegacy-paddingBottom2').html('<span class="fill-to-size-text">התאמה פרופורציונלית של הקובץ ל- 50X70</span> ')
+    // $(".FormLabel").remove();
+    $('.fileAttachDropFilesHere a').html('<div class="upload_file"><img class="upload_file_img"/><div class="upload_file_text">לחצו כאן להעלאת הקובץ</div><div class="upload_file_text_checked">הקובץ הועלה בהצלחה</div></div>')
+    // $('.uStoreLegacy-paddingBottom2').html('<span class="fill-to-size-text">התאמה פרופורציונלית של הקובץ ל- 50X70</span> ')
 
   });
 </script>
