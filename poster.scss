@@ -327,9 +327,9 @@ body {
   padding: 0 !important;
 }
 
-#tblRegistration tr:nth-last-child(1) td {
-  width: 100%;
-}
+// #tblRegistration tr:nth-last-child(1) td {
+//   width: 100%;
+// }
 .singleSignOnButtonFacebook {
   margin: 0 auto;
 }
@@ -1093,7 +1093,9 @@ ul.CheckOutPage li.cartSummary ul dd {
   margin: 0;
   background-color: #dff5fe;
 }
-
+#searcharea {
+  min-height: 0px !important;
+}
 #SlideShow #img_0 {
   cursor: pointer;
   padding: 10px;
@@ -1950,4 +1952,440 @@ div#disclaimer_box {
 .fill-to-size-text {
   color: #0c2b49;
   font-size: 16px;
+}
+
+// LOGIN PAGE
+
+.sheader {
+  z-index: 7;
+  padding-top: 15px;
+  width: 100%;
+  position: fixed;
+}
+
+.sheader #order-icon a,
+.sheader #order-icon a:visited {
+  font-size: 16px;
+  color: #00576c;
+}
+
+.sheader #order-icon a:hover {
+  text-decoration: none;
+}
+
+.sheader #order-icon {
+  float: right;
+  font-size: 16px;
+  margin: 15px 60px 0 0;
+}
+
+.sheader .cart .cart-icon-container {
+  padding: 11px 13px 0 0px;
+  width: 32px;
+  height: 34px;
+  box-shadow: 4px 3px 19px 0 #bdcbd1, -7px -7px 16px 0 #fafcfc, inset 1px 1px 16px 0 #e9f0f2,
+    inset -1px -1px 16px 0 #f5f9fa;
+  background-blend-mode: soft-light, normal;
+  background-image: linear-gradient(147deg, #40575d 6%, #606a82 92%),
+    linear-gradient(128deg, #e6eced -80%, #e6eced 0, #f7f9fa 151%);
+  border-radius: 50px;
+}
+
+.sheader .main-wrapper {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.sheader .sheader-stripe {
+  z-index: 1;
+  height: auto;
+  padding-bottom: 15px;
+  float: right;
+  width: 100%;
+}
+
+.sheader .sheader-stripe .logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 50px;
+  min-width: 103px;
+  float: right;
+  align-items: flex-start;
+}
+
+.sheader .sheader-stripe .logo-container,
+.sheader .sheader-stripe .logo-container img {
+  min-width: 103px;
+  min-height: 50px;
+}
+
+.sheader .sheader-stripe .right-icons {
+  left: 20px;
+  right: unset;
+}
+.sheader .sheader-stripe .right-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: left;
+}
+
+.sheader .signin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  height: auto;
+  margin-left: 15px;
+}
+
+.signin-info {
+  width: 60%;
+  padding-right: 10px;
+  align-self: flex-start;
+  color: var(--text-color-medium);
+}
+
+.sheader .sheader-stripe .right-icons .sign-in-img .btn-container {
+  width: 50px;
+  height: 50px;
+  float: right;
+}
+
+.sheader .sheader-stripe .right-icons .sign-in-img .button-secondary {
+  padding: 11px 13px 0 0px;
+  width: 32px;
+  height: 34px;
+  float: right;
+  box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 #bdcfd1, inset -5px -4px 10px 0 #fafbfc;
+  background-color: #dbe8e9;
+  border-radius: 50px;
+  min-width: unset !important;
+  border: 0;
+}
+
+.sheader #order-icon {
+  float: right;
+  font-size: 16px;
+  margin: 15px 60px 0 0;
+}
+
+.login-page-legacy #tblRegistration .uStoreLegacy-padding5_37_5_0 {
+  width: 96%;
+  float: none;
+}
+.register-block-legacy .toggled {
+  display: block !important;
+}
+
+.login-page-legacy #tblSignIn #ctl00_cphMainContent_btnPassReminder {
+  color: #0077d2;
+  font-size: 18px;
+}
+
+.sheader .sheader-stripe .right-icons {
+  left: 20px;
+  right: unset;
+}
+
+.sheader .sheader-stripe .main-wrapper {
+  right: -330px;
+  margin-left: 50px;
+  margin-right: 0;
+}
+
+.sheader .sheader-stripe .main-wrapper .culture {
+  left: 130px;
+  right: unset;
+}
+
+.sheader .sheader-stripe .main-wrapper .currency {
+  left: 82px;
+  right: unset;
+}
+
+.main-wrapper {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+#order-icon .icon-holder {
+  float: right;
+  margin-left: 6px;
+}
+
+.button-secondary .icon-holder {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+}
+
+.login-page-legacy table#tblSignIn,
+.login-page-legacy table#tblRegistration {
+  width: 37%;
+  float: right;
+  // box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 #bdcfd1, inset -5px -4px 10px 0 #fafbfc;
+  box-shadow: 2.5px 4.3px 18px 0 rgba(0, 0, 0, 0.16);
+  // background-color: #e6eced;
+  border-radius: 24px;
+}
+.formbox {
+  background-color: transparent !important;
+}
+.login-page-legacy table#tblSignIn {
+  margin-right: 45px;
+}
+.login-page-legacy table#tblSignIn .Heading2,
+.login-page-legacy table#tblRegistration .Heading2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+  float: right;
+  width: 100%;
+  margin: 18px 0 0 0px;
+  color: #0c2b49;
+  padding-bottom: 13px;
+  border-bottom: solid 1px #0c2b49;
+  margin-bottom: 25px;
+}
+
+// .login-page-legacy .mainareaFullWidth {
+//   margin-top: 80px;
+// }
+
+.login-page-legacy #tblRegistration .uStoreLegacy-padding5_37_5_0 {
+  width: 96%;
+  float: none;
+}
+
+.login-page-legacy #tblSignIn #ctl00_cphMainContent_btnPassReminder {
+  color: #0077d2;
+  font-size: 18px;
+}
+
+.login-page-legacy #ctl00_cphMainContent_btnRegister {
+  width: 94%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0;
+  margin: 8px auto 20px auto;
+  padding: 14px 0 11px 0 !important;
+  text-align: center;
+  cursor: pointer;
+  height: 37px;
+  border-radius: 10px;
+  // box-shadow: 5px 2px 6px 0 rgb(190 219 211 / 80%), -2px -5px 6px 0 rgb(255 255 255 / 90%),
+  //   inset 2px 2px 4px 0 rgb(255 255 255 / 50%), inset -2px -2px 4px 0 #ddefed;
+  // background-image: linear-gradient(286deg, #007999, #00586e);
+  background-color: #0c2b49;
+}
+
+.login-page-legacy .uStoreLegacy-floatRight {
+  float: right;
+  width: 100%;
+}
+
+.login-page-legacy #tblRegistration .show-pass {
+  top: 18px;
+}
+
+.login-page-legacy #tblRegistration .show-pass .uStoreLegacy-padding5_37_5_0 {
+  float: right;
+  width: auto;
+}
+
+.login-page-legacy .uStoreLegacy-padding5_20 td {
+  position: relative;
+}
+
+.login-page-legacy .show-pass {
+  left: 26px;
+  top: 21px;
+  position: absolute;
+}
+.login-page-legacy .form-group {
+  position: relative;
+}
+
+.login-page-legacy #ctl00_cphMainContent_btnLogin {
+  width: 90%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: 0;
+  margin: 20px auto;
+  padding-top: 18px !important;
+  text-align: center;
+  cursor: pointer;
+  height: 37px;
+  border-radius: 10px;
+  // box-shadow: 5px 2px 6px 0 rgb(190 219 211 / 80%), -2px -5px 6px 0 rgb(255 255 255 / 90%),
+  //   inset 2px 2px 4px 0 rgb(255 255 255 / 50%), inset -2px -2px 4px 0 #ddefed;
+  // background-image: linear-gradient(286deg, #007999, #00586e);
+  background-color: #0c2b49;
+}
+
+.login-page-legacy table#tblSignIn,
+.login-page-legacy table#tblRegistration {
+  width: 37%;
+  float: right;
+  // box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 #bdcfd1, inset -5px -4px 10px 0 #fafbfc;
+  background-color: #e6eced;
+  border-radius: 24px;
+}
+
+.login-page-legacy .uStoreLegacy-padding0_18 table,
+.login-page-legacy .uStoreLegacy-padding5_20 table {
+  float: right;
+  width: 100%;
+}
+
+.login-page-legacy .FormField,
+.login-page-legacy .formfield {
+  color: #0c2b49;
+  padding: 0 5% !important;
+  font-size: 18px;
+  font-family: "Noto Sans Hebrew", Arial;
+  font-size: 18px;
+  width: 90% !important;
+  margin-bottom: 13px;
+  height: 40px;
+  // border: 0 !important;
+  border-radius: 2px !important;
+  // box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 rgb(189 207 209 / 60%), inset -5px -4px 10px 0 #fafbfc;
+  border: 1px solid #9d9d9d;
+  // background-color: #f6f8f9;
+}
+
+.login-page-legacy .FormField::placeholder,
+.login-page-legacy .formfield::placeholder {
+  color: #698d96;
+}
+
+.login-page-legacy .uStoreLegacy-padding5_20 {
+  width: 90%;
+  float: right;
+  padding: 0 5%;
+}
+
+.login-page-legacy #ctl00_cphMainContent_divSocialSignIn {
+  float: right;
+}
+
+.register-block-legacy .toggled {
+  display: block !important;
+}
+
+.edit-settings-legacy {
+  float: right;
+  width: 68%;
+  box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 #bdcfd1, inset -5px -4px 10px 0 #fafbfc;
+  background-color: #e6eced;
+  border-radius: 24px;
+}
+
+.login-page-legacy #bodyarea {
+  background: transparent;
+}
+
+.Address_AddressReference .FormField {
+  float: right;
+  width: 100%;
+}
+
+.Address_Address1 .FormField,
+.Address_Address2 .FormField,
+.Address_Zip .FormField {
+  width: 100%;
+  float: right;
+}
+.Address_Company .FormField,
+.Address_Phone .FormField {
+  width: 100%;
+  float: right;
+}
+.login-page-legacy .FormField:focus,
+.login-page-legacy .formfield:focus {
+  outline: 0;
+  border: 0;
+}
+
+.login-page-legacy .FormField::placeholder,
+.login-page-legacy .formfield::placeholder {
+  color: #698d96;
+}
+
+.pass-settings-legacy .FormField {
+  width: 209px;
+  color: #00576c;
+  padding: 0 5% !important;
+  font-size: 18px;
+  font-family: "Noto Sans Hebrew", Arial;
+  font-size: 18px;
+  display: block;
+  margin: 3px auto;
+  float: none;
+  width: 70% !important;
+  height: 60px;
+  border: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 rgb(189 207 209 / 60%), inset -5px -4px 10px 0 #fafbfc;
+  background-color: #f6f8f9;
+}
+
+.pass-settings-legacy .FormField::placeholder {
+  color: #698d96;
+}
+
+.pass-settings-legacy .FormField:focus {
+  outline: 0;
+  border: 0;
+}
+
+.fb-login-lgeacy {
+  color: #0c2b49;
+  border: 1px solid #0c2b49 !important;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 10px !important;
+  padding: 5% 0 5% 0 !important;
+  width: 96%;
+  cursor: pointer;
+}
+
+.fb-login-lgeacy img {
+  vertical-align: top;
+  margin-left: 8px;
+  margin-top: -3px;
+}
+.choose-or-legacy {
+  float: right;
+  width: 17%;
+  position: relative;
+  padding-top: 20%;
+  text-align: center;
+  font-size: 18px;
+  z-index: 9999;
+  color: #0c2b49;
+}
+
+.or-legacy-line {
+  height: 1px;
+  background: #0c2b49;
+  width: 85%;
+  float: right;
+  z-index: -1;
+  position: absolute;
+  right: 6%;
+  bottom: 9px;
+}
+
+.or-legacy-title {
+  background: #f7f9fa;
+  padding: 2% 5%;
+}
+.uStoreLegacy-padding0_20 {
+  padding-bottom: 5px !important;
 }

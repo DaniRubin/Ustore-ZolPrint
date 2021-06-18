@@ -962,13 +962,74 @@
 
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    // Login / Register page
+    var ref = window.location.href;
+    if (ref.includes("login")) {
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
+      setTimeout(function () {
+        // $("#divWebEnhancerButton").append('<div class="sheader"><div class="main-wrapper"><div class="sheader-stripe" draweropen="false"><div class="logo-wrapper"><a href="/print/he-IL/home/"><div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo"></div></a></div>    </div></div>');
+        $(".RegisterLink").parent().remove();
+        $("#tblRegistration").addClass("register-block-legacy");
+        $(".LoginMaster").addClass("login-page-legacy");
+        // $(".loginLogoContainer").remove();
+        $(".login-page-legacy #tblSocialSignIn").hide();
+        $(".login-page-legacy .control-label, .login-page-legacy .formpromptL").remove();
+        $(".login-page-legacy #ctl00_cphMainContent_txtEmail").attr("placeholder", "מייל");
+        $(".login-page-legacy #ctl00_cphMainContent_txtPassword").attr("placeholder", "סיסמה");
+        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtFirstName").attr("placeholder", "שם פרטי");
+        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtLastName").attr("placeholder", "שם משפחה (אופציונלי)");
+        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtEmail").attr("placeholder", "מייל");
+        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtPassword").attr("placeholder", "סיסמה");
+        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").attr("placeholder", "אישור סיסמה");
+        $(".login-page-legacy #ctl00_cphMainContent_emailRequired, .login-page-legacy #ctl00_cphMainContent_passwordRequired, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvFirstName, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvEmailAddress, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvPassword, .login-page-legacy #ctl00_cphMainContent_emailValid").remove();
+        $(".login-page-legacy #ctl00_cphMainContent_txtPassword, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtPassword, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").parent().append('<div class="show-pass"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/pass-show.svg"></div>');
+        $(".login-page-legacy .formfield").addClass("FormField");
+        $(".login-page-legacy .formdivider").remove();
+        $(".sheader .signin-info").remove();
+        $('<div class="fb-login-lgeacy"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/00-general-icons-facebook.svg">התחברות באמצעות Facebook</div>').insertAfter(".login-page-legacy #ctl00_cphMainContent_btnLogin");
+        $('<div class="choose-or-legacy"><span class="or-legacy-title">או</span><span class="or-legacy-line"></span></div>').insertAfter('.login-page-legacy #tblSignIn');
+      }, 70);
+      $(document).on("click", ".show-pass", function () {
+        var input = $(this).parent().find(".FormField");
+        //input.remove();
+        console.log("clicked..");
+        console.log(input);
+        if (input.attr("type") == "password") {
+          input.attr("type", "text");
+        }
+        else {
+          input.attr("type", "password");
+        }
+      });
+      $(document).on("click", ".fb-login-lgeacy", function () {
+        setTimeout(function () {
+          $(".singleSignOnButtonFacebook")[0].click();
+        }, 400);
+
+      });
+    }
+  })
+</script>
 
 <!-- New version updating -->
 <script type="text/javascript">
   $(document).ready(function () {
-    // $(".FormLabel").remove();
     $('.fileAttachDropFilesHere a').html('<div class="upload_file"><img class="upload_file_img"/><div class="upload_file_text">לחצו כאן להעלאת הקובץ</div><div class="upload_file_text_checked">הקובץ הועלה בהצלחה</div></div>')
-    // $('.uStoreLegacy-paddingBottom2').html('<span class="fill-to-size-text">התאמה פרופורציונלית של הקובץ ל- 50X70</span> ')
 
   });
 </script>
