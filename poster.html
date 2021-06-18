@@ -986,7 +986,6 @@
         $(".RegisterLink").parent().remove();
         $("#tblRegistration").addClass("register-block-legacy");
         $(".LoginMaster").addClass("login-page-legacy");
-        // $(".loginLogoContainer").remove();
         $(".login-page-legacy #tblSocialSignIn").hide();
         $(".login-page-legacy .control-label, .login-page-legacy .formpromptL").remove();
         $(".login-page-legacy #ctl00_cphMainContent_txtEmail").attr("placeholder", "מייל");
@@ -1004,6 +1003,10 @@
         $('<div class="fb-login-lgeacy"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/00-general-icons-facebook.svg">התחברות באמצעות Facebook</div>').insertAfter(".login-page-legacy #ctl00_cphMainContent_btnLogin");
         $('<div class="choose-or-legacy"><span class="or-legacy-title">או</span><span class="or-legacy-line"></span></div>').insertAfter('.login-page-legacy #tblSignIn');
       }, 70);
+      $(document).on("click", ".loginLogoContainer", function () {
+        window.location.href = "/testdani/he-IL/home/"
+      });
+
       $(document).on("click", ".show-pass", function () {
         var input = $(this).parent().find(".FormField");
         //input.remove();

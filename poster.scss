@@ -1123,6 +1123,7 @@ ul.CheckOutPage li.cartSummary ul dd {
 .loginLogoContainer .logo {
   max-width: 240px;
   max-height: 160px;
+  cursor: pointer;
 }
 
 .checkoutFinalBack,
@@ -2202,7 +2203,7 @@ div#disclaimer_box {
 
 .login-page-legacy .show-pass {
   left: 26px;
-  top: 21px;
+  top: 14px;
   position: absolute;
 }
 .login-page-legacy .form-group {
