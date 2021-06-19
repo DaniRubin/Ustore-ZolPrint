@@ -967,22 +967,10 @@
 
     // Login / Register page
     var ref = window.location.href;
+    var storeName = 'testdani'
     if (ref.includes("login")) {
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEE")
       setTimeout(function () {
-        // $("#divWebEnhancerButton").append('<div class="sheader"><div class="main-wrapper"><div class="sheader-stripe" draweropen="false"><div class="logo-wrapper"><a href="/print/he-IL/home/"><div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo"></div></a></div>    </div></div>');
+        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="/${storeName}/he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="/${storeName}/he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="/${storeName}/he-IL/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="/${storeName}/he-IL/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <a class="link_top" href="/${storeName}/he-IL/Contact/">צרו קשר</a>        <div class="separator"></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="/${storeName}/he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
         $(".RegisterLink").parent().remove();
         $("#tblRegistration").addClass("register-block-legacy");
         $(".LoginMaster").addClass("login-page-legacy");
@@ -1002,10 +990,8 @@
         $(".sheader .signin-info").remove();
         $('<div class="fb-login-lgeacy"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/00-general-icons-facebook.svg">התחברות באמצעות Facebook</div>').insertAfter(".login-page-legacy #ctl00_cphMainContent_btnLogin");
         $('<div class="choose-or-legacy"><span class="or-legacy-title">או</span><span class="or-legacy-line"></span></div>').insertAfter('.login-page-legacy #tblSignIn');
+        $(".loginLogoContainer").remove()
       }, 70);
-      $(document).on("click", ".loginLogoContainer", function () {
-        window.location.href = "/testdani/he-IL/home/"
-      });
 
       $(document).on("click", ".show-pass", function () {
         var input = $(this).parent().find(".FormField");

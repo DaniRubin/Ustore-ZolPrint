@@ -1125,7 +1125,6 @@ ul.CheckOutPage li.cartSummary ul dd {
   max-height: 160px;
   cursor: pointer;
 }
-
 .checkoutFinalBack,
 .productDetailsBack,
 .WizardButtonsContainer div,
@@ -1191,7 +1190,30 @@ li.panel-body {
   left: 20px;
   right: unset;
 }
-
+.link_top {
+  cursor: pointer;
+  color: #0c2b49;
+  font-size: 20px !important;
+  line-height: 1.2;
+  font-weight: 700;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+.separator {
+  display: inline-block;
+  width: 1px;
+  background-color: #0c2b49;
+  height: 22px;
+  margin: 0 10px;
+}
+.left-icons {
+  margin-top: 35px;
+  margin-right: 20px;
+  display: flex;
+  float: right;
+  flex-direction: row;
+  align-items: center;
+}
 .header .header-stripe .main-wrapper {
   right: -330px;
   margin-left: 50px;
@@ -1962,6 +1984,13 @@ div#disclaimer_box {
   padding-top: 15px;
   width: 100%;
   position: fixed;
+  background-image: url(/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/header.png) !important;
+  background-position: bottom !important;
+  background-repeat: repeat-x !important;
+  box-shadow: 0 5px 15px -5px rgb(0 0 0 / 12%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
 }
 
 .sheader #order-icon a,
@@ -1982,36 +2011,43 @@ div#disclaimer_box {
 
 .sheader .cart .cart-icon-container {
   padding: 11px 13px 0 0px;
-  width: 32px;
-  height: 34px;
-  box-shadow: 4px 3px 19px 0 #bdcbd1, -7px -7px 16px 0 #fafcfc, inset 1px 1px 16px 0 #e9f0f2,
-    inset -1px -1px 16px 0 #f5f9fa;
-  background-blend-mode: soft-light, normal;
-  background-image: linear-gradient(147deg, #40575d 6%, #606a82 92%),
-    linear-gradient(128deg, #e6eced -80%, #e6eced 0, #f7f9fa 151%);
-  border-radius: 50px;
 }
 
 .sheader .main-wrapper {
-  width: 1140px;
+  // width: 1140px;
+  background-image: url(/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/header.png) !important;
+  background-position: bottom !important;
+  background-repeat: repeat-x !important;
+  box-shadow: 0 5px 15px -5px rgb(0 0 0 / 12%) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
   margin: 0 auto;
 }
 
 .sheader .sheader-stripe {
   z-index: 1;
   height: auto;
-  padding-bottom: 15px;
   float: right;
+  width: 990px;
+  height: 110px !important;
+  margin: auto;
+}
+.header_bottom {
+  background-image: url(/ustorethemes/ZolPrint/assets/images/header_bottom.png);
+  background-repeat: repeat-x;
+  height: 11px;
   width: 100%;
 }
 
 .sheader .sheader-stripe .logo-wrapper {
   display: flex;
   flex-direction: row;
-  min-height: 50px;
+  min-height: fit-content;
   min-width: 103px;
   float: right;
   align-items: flex-start;
+  padding: 10px;
 }
 
 .sheader .sheader-stripe .logo-container,
@@ -2025,6 +2061,7 @@ div#disclaimer_box {
   right: unset;
 }
 .sheader .sheader-stripe .right-icons {
+  margin-top: 35px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2085,11 +2122,6 @@ div#disclaimer_box {
   font-size: 18px;
 }
 
-.sheader .sheader-stripe .right-icons {
-  left: 20px;
-  right: unset;
-}
-
 .sheader .sheader-stripe .main-wrapper {
   right: -330px;
   margin-left: 50px;
@@ -2104,11 +2136,6 @@ div#disclaimer_box {
 .sheader .sheader-stripe .main-wrapper .currency {
   left: 82px;
   right: unset;
-}
-
-.main-wrapper {
-  width: 1140px;
-  margin: 0 auto;
 }
 
 #order-icon .icon-holder {
@@ -2126,10 +2153,9 @@ div#disclaimer_box {
 .login-page-legacy table#tblRegistration {
   width: 37%;
   float: right;
-  // box-shadow: 1px 1px 7px 0 #ebeff0, inset 3px 3px 8px 0 #bdcfd1, inset -5px -4px 10px 0 #fafbfc;
   box-shadow: 2.5px 4.3px 18px 0 rgba(0, 0, 0, 0.16);
-  // background-color: #e6eced;
   border-radius: 24px;
+  padding: 10px;
 }
 .formbox {
   background-color: transparent !important;
@@ -2384,7 +2410,7 @@ div#disclaimer_box {
 }
 
 .or-legacy-title {
-  background: #f7f9fa;
+  background-color: white;
   padding: 2% 5%;
 }
 .uStoreLegacy-padding0_20 {
