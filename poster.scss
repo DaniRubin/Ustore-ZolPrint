@@ -1037,7 +1037,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
 .subtitleProductName {
   text-align: center;
   width: 100%;
-  padding-top: 11px;
+  // padding-top: 11px;
   font-size: 36px;
   height: 66px;
   margin: 0;
@@ -1938,7 +1938,7 @@ li.panel-body {
     
     }*/
 
-span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
+#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
 #ctl00_cphMainContent_ucDialCustomization_Duc24087_lblDial {
   font-size: 20px;
   color: #505050;
@@ -1952,8 +1952,61 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
 #ctl00_cphMainContent_ucDialCustomization_Duc24087_lblDial {
   display: none;
 }
+
+#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial {
+  float: left;
+  color: #0c2b49 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  margin-left: 5px;
+}
+.info-button {
+  height: 26px;
+  width: 26px;
+  background-image: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/question-mark.png");
+  display: inline-block;
+  border-radius: 50%;
+  float: left;
+  margin-top: -3px;
+  cursor: pointer;
+}
+.info-explain-bubble {
+  display: none;
+  background-image: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/text-bubble.png");
+  width: 340px;
+  height: 275px;
+  z-index: 999;
+  position: absolute;
+  margin-right: 54px;
+  margin-top: -27px;
+}
+
+.two-side-flyer,
+.one-side-flyer {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.one-side-img {
+  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/flyer-one-side.png");
+  display: inline-block;
+  height: 25px;
+  vertical-align: middle;
+}
+.two-side-explain,
+.one-side-explain {
+  display: inline-block;
+  margin-right: 15px;
+}
+.two-side-img {
+  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/flyer-two-sides.png");
+  height: 25px;
+  vertical-align: middle;
+}
+
 span#ctl00_cphMainContent_LblMessage {
   display: none;
+  color: #0c2b49 !important;
 }
 
 div#disclaimer_box {
@@ -1966,10 +2019,12 @@ div#disclaimer_box {
 #ctl00_cphMainContent_ucDialCustomization_Duc24087_lblDescription {
   color: #0c2b49 !important;
 }
-.direction-box input[value="landscape"] + img {
+.direction-box input[value="landscape"] + img,
+.direction-box input[value="Landscape"] + img {
   content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/horizon.png") !important;
 }
-.direction-box input[value="portrait"] + img {
+.direction-box input[value="portrait"] + img,
+.direction-box input[value="Portrait"] + img {
   content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vertical.png") !important;
 }
 .fill-to-size-text {
@@ -2314,7 +2369,7 @@ table#tblRegistration .Heading2 {
 }
 
 .show-pass {
-  left: -10px;
+  left: -20px;
   top: 14px;
   position: absolute;
 }

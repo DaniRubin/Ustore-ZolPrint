@@ -734,14 +734,6 @@
     else if ($('#validationSummary ul li').html() == "Clearing Failed") {
       $('#validationSummary ul li').html("העסקה נכשלה. יש לבדוק היטב את פרטי כרטיס האשראי שהוזנו");
     }
-    // *********************************************************** -->
-    // Changes title to be our content
-    if ($('.subTitleProductNameExists').length) {
-      $('#searcharea #ctl00_containerPageProductName').html("הזמנת פוסטרים");
-    }
-    else {
-      $('.subtitleProductName').remove();
-    }
 
     // *********************************************************** -->
     // Handles redirection
@@ -962,15 +954,19 @@
 
 </script>
 
+
+<!-- *************************************************************************************** -->
+<!-- LOGIN PAGE - Dani -->
+<!-- *************************************************************************************** -->
 <script type="text/javascript">
   $(document).ready(function () {
+    var storeName = 'testdani'
 
     // Login / Register page
     var ref = window.location.href;
-    var storeName = 'testdani'
     if (ref.includes("login")) {
       setTimeout(function () {
-        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="/${storeName}/he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="/${storeName}/he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="/${storeName}/he-IL/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="/${storeName}/he-IL/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <div id="make-contact"><a class="link_top" href="/${storeName}/he-IL/Contact/">צרו קשר</a>        <div class="separator"></div></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="/${storeName}/he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
+        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="/${storeName}/he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="/${storeName}/he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="/${storeName}/he-IL/pages/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="/${storeName}/he-IL/pages/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <div id="make-contact"><a class="link_top" href="/${storeName}/he-IL/pages/Contact/">צרו קשר</a>        <div class="separator"></div></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="/${storeName}/he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
         $(".RegisterLink").parent().remove();
         $("#tblRegistration").addClass("register-block-legacy");
         $(".LoginMaster").addClass("login-page-legacy");
@@ -1017,10 +1013,45 @@
   })
 </script>
 
+
+
+
 <!-- New version updating -->
 <script type="text/javascript">
   $(document).ready(function () {
+    var PAGE_TYPE = ''
+    var content = ''
     $('.fileAttachDropFilesHere a').html('<div class="upload_file"><img class="upload_file_img"/><div class="upload_file_text">לחצו כאן להעלאת הקובץ</div><div class="upload_file_text_checked">הקובץ הועלה בהצלחה</div></div>')
+    if ($('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial').length) content = $('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial').html();
+    else if ($('#ctl00_cphMainContent_ucDialCustomization_Duc24087_lblDescription').length) content = $('#ctl00_cphMainContent_ucDialCustomization_Duc24087_lblDescription').html();
 
+    console.log(content)
+    if (content.includes('בגודל A5')) {
+      console.log("Flyer page")
+      PAGE_TYPE = 'FLYER'
+      if ($('.subTitleProductNameExists').length) {
+        $('#searcharea #ctl00_containerPageProductName').html("הזמנת פליירים");
+      }
+      else {
+        $('.subtitleProductName').remove();
+      }
+      $('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial .Error').hide()
+      $('<div class="info-button"></div><div class="info-explain-bubble"><div class="one-side-flyer"><img class="one-side-img"/><div class="one-side-explain">לפלייר חד צדדי</div></div><div class="two-side-flyer"><img class="two-side-img"/><div class="two-side-explain">לפלייר דו צדדי</div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial')
+      $('.info-button').click(function () {
+        $('.info-explain-bubble').toggle()
+      })
+
+    }
+    else {
+      console.log("Poster page")
+      PAGE_TYPE = 'POSTER'
+      // *********************************************************** -->
+      if ($('.subTitleProductNameExists').length) {
+        $('#searcharea #ctl00_containerPageProductName').html("הזמנת פוסטרים");
+      }
+      else {
+        $('.subtitleProductName').remove();
+      }
+    }
   });
 </script>
