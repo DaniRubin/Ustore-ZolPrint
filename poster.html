@@ -970,27 +970,29 @@
     var storeName = 'testdani'
     if (ref.includes("login")) {
       setTimeout(function () {
-        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="/${storeName}/he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="/${storeName}/he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="/${storeName}/he-IL/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="/${storeName}/he-IL/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <a class="link_top" href="/${storeName}/he-IL/Contact/">צרו קשר</a>        <div class="separator"></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="/${storeName}/he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
+        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="/${storeName}/he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="/${storeName}/he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="/${storeName}/he-IL/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="/${storeName}/he-IL/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <div id="make-contact"><a class="link_top" href="/${storeName}/he-IL/Contact/">צרו קשר</a>        <div class="separator"></div></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="/${storeName}/he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
         $(".RegisterLink").parent().remove();
         $("#tblRegistration").addClass("register-block-legacy");
         $(".LoginMaster").addClass("login-page-legacy");
-        $(".login-page-legacy #tblSocialSignIn").hide();
-        $(".login-page-legacy .control-label, .login-page-legacy .formpromptL").remove();
-        $(".login-page-legacy #ctl00_cphMainContent_txtEmail").attr("placeholder", "מייל");
-        $(".login-page-legacy #ctl00_cphMainContent_txtPassword").attr("placeholder", "סיסמה");
-        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtFirstName").attr("placeholder", "שם פרטי");
-        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtLastName").attr("placeholder", "שם משפחה (אופציונלי)");
-        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtEmail").attr("placeholder", "מייל");
-        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtPassword").attr("placeholder", "סיסמה");
-        $(".login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").attr("placeholder", "אישור סיסמה");
-        $(".login-page-legacy #ctl00_cphMainContent_emailRequired, .login-page-legacy #ctl00_cphMainContent_passwordRequired, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvFirstName, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvEmailAddress, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_rfvPassword, .login-page-legacy #ctl00_cphMainContent_emailValid").remove();
-        $(".login-page-legacy #ctl00_cphMainContent_txtPassword, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtPassword, .login-page-legacy #ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").parent().append('<div class="show-pass"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/pass-show.svg"></div>');
-        $(".login-page-legacy .formfield").addClass("FormField");
-        $(".login-page-legacy .formdivider").remove();
+        $("#tblSocialSignIn").hide();
+        $(".control-label, .formpromptL").remove();
+        $("#ctl00_cphMainContent_txtEmail").attr("placeholder", "מייל");
+        $("#ctl00_cphMainContent_txtPassword").attr("placeholder", "סיסמא");
+        $("#ctl00_cphMainContent_ucUserRegistration_txtFirstName").attr("placeholder", "שם פרטי*");
+        $("#ctl00_cphMainContent_ucUserRegistration_txtLastName").attr("placeholder", "שם משפחה");
+        $("#ctl00_cphMainContent_ucUserRegistration_txtEmail").attr("placeholder", "מייל*");
+        $("#ctl00_cphMainContent_ucUserRegistration_txtPassword").attr("placeholder", "סיסמא*");
+        $("#ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").attr("placeholder", "אישור סיסמא*");
+        $("#ctl00_cphMainContent_emailRequired, #ctl00_cphMainContent_passwordRequired, #ctl00_cphMainContent_ucUserRegistration_rfvFirstName, #ctl00_cphMainContent_ucUserRegistration_rfvEmailAddress, #ctl00_cphMainContent_ucUserRegistration_rfvPassword, #ctl00_cphMainContent_emailValid").remove();
+        $("#ctl00_cphMainContent_txtPassword, #ctl00_cphMainContent_ucUserRegistration_txtPassword, #ctl00_cphMainContent_ucUserRegistration_txtConfirmPassword").parent().append('<div class="show-pass"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/pass-show.svg"></div>');
+        $(".formfield").addClass("FormField");
+        $(".formdivider").remove();
         $(".sheader .signin-info").remove();
-        $('<div class="fb-login-lgeacy"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/00-general-icons-facebook.svg">התחברות באמצעות Facebook</div>').insertAfter(".login-page-legacy #ctl00_cphMainContent_btnLogin");
-        $('<div class="choose-or-legacy"><span class="or-legacy-title">או</span><span class="or-legacy-line"></span></div>').insertAfter('.login-page-legacy #tblSignIn');
+        $('<div class="fb-login-lgeacy"><img src="/ustoreThemeCustomizations/7e3cba3a-908c-4145-a418-69de15962725/Published/Assets/00-general-icons-facebook.svg" style="width:25px !important">התחברות באמצעות Facebook</div>').insertAfter("#ctl00_cphMainContent_btnLogin");
+        $('<div class="choose-or-legacy"><span class="or-legacy-title">או</span><span class="or-legacy-line"></span></div>').insertAfter('#tblSignIn');
         $(".loginLogoContainer").remove()
+        // Mobile
+
       }, 70);
 
       $(document).on("click", ".show-pass", function () {
