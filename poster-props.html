@@ -1,0 +1,64 @@
+<script type="text/javascript">
+
+    var clonedElm = $('.subtitleProductName').clone();
+    var parentElm = $('.container').parent();
+    $(clonedElm).prependTo(parentElm);
+    // $('.subtitleProductName').eq(1).remove();
+    // $('.subtitleProductName').html("הזמנת פוסטרים");
+
+
+    if ($("#fullpage").text().includes('₪') || $('.container').text().includes('₪')) {
+        setTimeout(function () {
+            $('.next').hide();
+        }, 700);
+    }
+
+    setTimeout(function () {
+        $('.finish a').html('הוסף לעגלה<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/add_cart.png">');
+
+        $('.back a').html('<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/right_gr_arr.png">לשלב הקודם');
+
+        $('.proofLink').prepend('<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/preview_new.png">');
+        $('.proofLink img').eq(1).remove();
+
+        $('#bubble').remove();
+
+
+        $('#ctl00_cphMainContent_ctl09_lbtnProof').html("תצוגה מקדימה");
+    }, 700);
+
+    $('<div class="line_sep"></div>').insertAfter("#tblNumCopies");
+    $('.line_sep').eq(1).remove();
+
+    $('.beforePriceGap').parent().parent().remove();
+
+
+    $("#ctl00_cphMainContent_ctl09_tdProof").parent().prepend('<td class="desc"><p>לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג<br>מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים<br>דקים בנראות הסופית של הפוסטר המודפס.</p></td>');
+
+    $('.desc').parent().addClass('approve');
+
+    $('<label for="ctl00_cphMainContent_ctl09_chkProofApproval" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ctl09_chkProofApproval");
+    $('.mainareaFullWidth').append('<div class="shadow_bottom_sep"></div>');
+    $('.shadow_bottom_sep').eq(1).remove();
+
+    $('#OrderFinalStep_PriceReview_PricePerUnit').find(".FormLabel").eq(0).html('מחיר לפני מע"מ');
+    $('#OrderFinalStep_PriceReview_TotalPrice').find(".FormLabel").eq(0).html('מחיר כולל מע"מ');
+
+    var total = $('#OrderFinalStep_PriceReview_TotalPrice').find(".FormField").eq(0).html();
+    total = parseFloat(total.replace(",", ""));
+
+    var tax = $('#OrderFinalStep_PriceReview_Tax').find(".FormField").eq(0).html();
+    tax = parseFloat(tax.replace(",", ""));
+
+    var beforeTax = parseFloat(total - tax).toFixed(2);
+
+    $('#OrderFinalStep_PriceReview_PricePerUnit').find(".FormField").eq(0).html(beforeTax + " ₪");
+
+
+
+    if ($(window).width() < 456) {
+        $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפלייר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפלייר המודפס");
+    }
+
+
+</script>

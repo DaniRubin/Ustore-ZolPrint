@@ -444,7 +444,9 @@ ul.CheckOutPage li.cartSummary ul {
 div[id$="_dgShippingItems"] tr > td:nth-child(1) {
   text-align: center;
 }
-
+#ctl00_cphMainContent_ucDialCustomization_SlideShow_divNavigationPanel {
+  display: none;
+}
 #ctl00_cphMainContent_ucDialCustomization_SlideShow_lblPage {
   display: none;
 }
@@ -514,7 +516,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
   background-repeat: no-repeat;
   color: #f2f2f2;
 }
-
+#ctl00_cphMainContent_ucDialCustomization_Duc24269_cbxCheckbox:checked + .checker,
 #ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox:checked + .checker,
 #ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox:checked + .checker {
   background-image: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/checkbox-checked.png);
@@ -1097,6 +1099,7 @@ ul.CheckOutPage li.cartSummary ul dd {
 #searcharea {
   min-height: 0px !important;
 }
+#SlideShow #img_1,
 #SlideShow #img_0 {
   cursor: pointer;
   padding: 10px;
@@ -1655,6 +1658,9 @@ li.panel-body {
   }
   #SlideShow .gallerylayer img {
     max-height: none;
+  }
+  #SlideShow .gallerylayer {
+    max-height: none !important;
   }
   .CustomizationProperties #preview {
     float: right;
@@ -2307,6 +2313,10 @@ div#disclaimer_box {
 }
 
 @media (max-width: 700px) {
+  .button-arrange-flyer {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
   table#tblSignIn,
   table#tblRegistration {
     width: 100% !important;
@@ -2639,11 +2649,13 @@ table#tblRegistration .Heading2 {
   border-radius: 3px;
   font-size: 20px;
   color: white;
-  margin: -10px 13px 26px 13px;
+  margin: -10px 13px 40px 13px;
   cursor: pointer;
 }
 .b-arrange-disabled {
   background-color: #e1e1e1 !important;
+  color: white !important;
+  box-shadow: none !important;
 }
 .cover-popup {
   background-color: black;
@@ -2656,4 +2668,35 @@ table#tblRegistration .Heading2 {
 }
 .two-line-text {
   line-height: 20px;
+}
+.unactive-side {
+  box-shadow: -2.3px 4.4px 16px 0 rgba(0, 0, 0, 0.21);
+  background-color: #ffffff;
+  color: #0c2b49;
+}
+#ctl00_cphMainContent_lblQuantityRange {
+  display: none;
+}
+.order-conditions {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #00a8ee;
+  margin-bottom: 25px;
+}
+.order-alert {
+  background-image: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/popup-bubble-alert.png");
+  width: 180px;
+  height: 40px;
+  font-weight: bold !important;
+  margin-right: 120px;
+  color: #0c2b49;
+  position: absolute;
+  margin-top: -10px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 27px 25px 0px 0px;
+  display: none;
+}
+.alert-not-substrctable {
+  width: 260px !important;
 }
