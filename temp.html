@@ -1,10 +1,25 @@
-<img id="img_1"
-  src="/uStore/Controls/ImageProxy.ashx?qs=I9rPqqYyx+Bk6M6tJJSALkRY8NV2uCPSdocXWWjI56LcbQQuXHGkkigvU73AWoD/GPyL06wWyUhIC/M9T8109kIJHP1e+Tm9nDbNZMBsv0gwvf/TTChoYNBiUqEq9c4j65kgTEFrXRC4rJSDCH261IpNYsiY88tzORUPefGpQbMTWY2XyOrv0D0CfcSDo9sihx0ECYSQqgDG4RvOSPUyGA=="
-  class="customizationPreview" align="middle"
-  onclick="popWindow('/uStore/Controls/ProofResult.aspx?qs=G+1qPGLzDnK+o63quTpQRcVunwyRbQd7LYLqdYHAXEac5jB1TlYDS0FPqh8HppdbMzmgV/lS+5wiG8yrP8ugfsm8XmLPkpRuPKsg4TDojEF93s3RnIWUOeeK25vrfSmpCWTTR97/dsoQ1XCgWYU9XdbT15n7RBE2+5+TDCOynDMSu5Cv2TJ3cQ8QNyvCVLQ3+6+S7He/sQ1ch01cvFzrSv8U192hV51Bp9M6LZ0vNF4=','Proof',710,550);return false;"
-  style="cursor:pointer;">
-<img id="img_0"
-  src="/uStore/Controls/ImageProxy.ashx?qs=g4jxG6RCLdskSOjdDoev5/1fAweT5GxmH7uEuL8iENYYplDUtRBFrryRsC6Qw71LqtNbNFauybc2p5RLXfRfo+FFr5CVx990WQaPdWt0+yrDYFEOBU6xpEcS+eTdfQReOOzu60ak+v+sUqFEiLSHlBMlgPTC7AEOgi9kGno5l93FH3pMjTx2qgu8ktnQzLiRjk3TaHWkr7ma3UdDodqmRw=="
-  class="customizationPreview" align="middle"
-  onclick="popWindow('/uStore/Controls/ProofResult.aspx?qs=oVi7ROqrQIXfARc8bl45MRKywOYeS+I2TcOoymNgB2RFoMAYBVYcD8NxakKnxHOzSmJ77Y6b5knaYj19h7Ce780WHtpGPMN91idJdsZR4JjufCEZny/NP/1nZKzveymAdDupIXrZdHnQlAHoV/5q70K5feVpMglS+yNz0R+hskiVWSlPh6NHOC6l171fbDSu2lXSUpYAfR0PPKWJUCbMOKgfGPo5AZVqQUkETVOaaec=','Proof',710,550);return false;"
-  style="cursor:pointer;">
+<script type="text/javascript">
+  $(document).ready(function () {
+    var ref = document.referrer;
+    $(document).on('DOMSubtreeModified', ".previewBox", function () {
+      setTimeout(function () {
+        if (!$('.front-flyer').hasClass('b-arrange-disabled')) {
+          if (!$('.back-flyer').hasClass('b-arrange-disabled')) {
+            console.log("Page side is - two sided")
+
+            passVal('דו צדדי');
+          }
+          else {
+            console.log("Page side is - one sided")
+            passVal('חד צדדי');
+          }
+        } else {
+          console.log("Page side is - NONE")
+          passVal('');
+        }
+      }, 2000);
+
+
+    });
+  });
+</script>

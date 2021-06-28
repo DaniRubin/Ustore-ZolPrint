@@ -965,6 +965,7 @@
 
         if (productType == 'poster') {
           setTimeout(() => {
+            var newValue = $('#ctl00_cphMainContent_txtNumCopies').val()
             if (newValue < 10) {
               $('.alert-more-money-poster').show()
             }
@@ -1138,7 +1139,6 @@
           else {
             if ($('#ctl00_cphMainContent_ucDialCustomization_SlideShow_btnPrev').length >= 1) {
               $('.back-flyer').removeClass('b-arrange-disabled');
-              console.log("H");
             }
             else { $('.back-flyer').addClass('b-arrange-disabled'); console.log('else'); }
             $('.front-flyer').removeClass('b-arrange-disabled')
@@ -1171,6 +1171,6 @@
       $('<div class="order-alert alert-more-money-poster">מינימום הזמנה 10 יחידות</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
       $('<div class="order-alert alert-not-substrctable">ניתן להזמין כמות בכפולות של 10 יחידות בלבד</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
 
-    }, 300);
+    }, 100);
   });
 </script>
