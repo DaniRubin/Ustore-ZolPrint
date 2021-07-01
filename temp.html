@@ -1,25 +1,16 @@
-<script type="text/javascript">
-  $(document).ready(function () {
-    var ref = document.referrer;
-    $(document).on('DOMSubtreeModified', ".previewBox", function () {
-      setTimeout(function () {
-        if (!$('.front-flyer').hasClass('b-arrange-disabled')) {
-          if (!$('.back-flyer').hasClass('b-arrange-disabled')) {
-            console.log("Page side is - two sided")
-
-            passVal('דו צדדי');
-          }
-          else {
-            console.log("Page side is - one sided")
-            passVal('חד צדדי');
-          }
-        } else {
-          console.log("Page side is - NONE")
-          passVal('');
-        }
-      }, 2000);
-
-
-    });
-  });
-</script>
+<div class="info-button"></div>
+<div class="info-explain-bubble"><img class="exit-popup-flyer" \
+    src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png" /> \
+  <div class="one-side-flyer"><img class="one-side-img" \
+      src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png" /> \
+    <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br /> יש להעלות תמונה או PDF
+      עם עמוד אחד בגודל A5 \
+    </div>
+  </div>
+  <div class="two-side-flyer"><img class="two-side-img" \
+      src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-side.png" /> \
+    <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br /> \
+      יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp; שני עמודים בגודל A5 </div>
+  </div>
+</div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial')
+$('<div class="cover-popup"></div>

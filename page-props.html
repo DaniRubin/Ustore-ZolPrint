@@ -3,8 +3,8 @@
     var clonedElm = $('.subtitleProductName').clone();
     var parentElm = $('.container').parent();
     $(clonedElm).prependTo(parentElm);
-    // $('.subtitleProductName').eq(1).remove();
-    // $('.subtitleProductName').html("הזמנת פוסטרים");
+    $('.subtitleProductName').eq(1).remove();
+    $('.subtitleProductName').html("הזמנת פוסטרים");
 
 
     if ($("#fullpage").text().includes('₪') || $('.container').text().includes('₪')) {
@@ -14,9 +14,9 @@
     }
 
     setTimeout(function () {
-        $('.finish a').html('הוסף לעגלה<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/add_cart.png">');
+        $('.finish a').html('הוסף לעגלה<img src="/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/cart-icon.png">');
 
-        $('.back a').html('<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/right_gr_arr.png">לשלב הקודם');
+        $('.back a').html('<img src="/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector-back.png">לשלב הקודם');
 
         $('.proofLink').prepend('<img src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/preview_new.png">');
         $('.proofLink img').eq(1).remove();
@@ -54,11 +54,20 @@
 
     $('#OrderFinalStep_PriceReview_PricePerUnit').find(".FormField").eq(0).html(beforeTax + " ₪");
 
-
-
     if ($(window).width() < 456) {
-        $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפלייר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפלייר המודפס");
+        $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפוסטר המודפס");
     }
 
+
+    $(document).ready(function () {
+        // Event 3:  Finish place order->Add to cart
+        $("#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonFinish").click(function (e) {
+            if ($('#ctl00_cphMainContent_ctl09_chkProofApproval').is(":checked")) {
+                fbq('track', 'AddToCart')
+                // alert("3. Event AddToCart fired!");
+            }
+        });
+
+    })
 
 </script>

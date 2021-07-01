@@ -502,6 +502,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
 
 #ctl00_cphMainContent_ucDialCustomization_Duc24269_cbxCheckbox,
 #ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox,
+#ctl00_cphMainContent_ucDialCustomization_Duc24354_cbxCheckbox,
 #ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox {
   display: none;
 }
@@ -516,6 +517,8 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
   background-repeat: no-repeat;
   color: #f2f2f2;
 }
+
+#ctl00_cphMainContent_ucDialCustomization_Duc24354_cbxCheckbox:checked + .checker,
 #ctl00_cphMainContent_ucDialCustomization_Duc24269_cbxCheckbox:checked + .checker,
 #ctl00_cphMainContent_ucDialCustomization_Duc21722_cbxCheckbox:checked + .checker,
 #ctl00_cphMainContent_ucDialCustomization_Duc24089_cbxCheckbox:checked + .checker {
@@ -709,7 +712,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
 .finish a img {
   vertical-align: middle;
   margin-right: 5px;
-  content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/cart-icon.png) !important;
+  // content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/cart-icon.png) !important;
 }
 
 .back {
@@ -731,7 +734,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
   border-radius: 10px;
 }
 .back a img {
-  content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector-back.png) !important;
+  // content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector-back.png) !important;
 }
 .back a {
   width: 100%;
@@ -809,7 +812,7 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
 .next a img {
   vertical-align: middle;
   margin-right: 5px;
-  content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector.png) !important;
+  // content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector.png) !important;
 }
 
 #ctl00_cphMainContent_divMandatoryDial .SmallItalic,
@@ -832,12 +835,12 @@ div[id$="_dgShippingItems"] tr > td:nth-child(1) {
   display: none !important;
 }
 .upload_file_img {
-  content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/upload.png);
+  // content: url(/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/upload.png);
   display: inline-block;
   margin: 20px 32px 0px 20px;
 }
 .upload_file_img_checked {
-  content: url(/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Draft/Assets/upload-success.png) !important;
+  // content: url(/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/upload-success.png) !important;
 }
 .upload_file_text {
   color: #0c2b49;
@@ -1980,6 +1983,7 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
   display: none;
 }
 
+#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial,
 #ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial {
   float: left;
   color: #0c2b49 !important;
@@ -1990,7 +1994,7 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
 .info-button {
   height: 26px;
   width: 26px;
-  background-image: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/question-mark.png");
+  background-image: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/question-mark.png");
   display: inline-block;
   border-radius: 50%;
   float: left;
@@ -1999,7 +2003,7 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
 }
 .info-explain-bubble {
   display: none;
-  background-image: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/text-bubble.png");
+  background-image: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/text-bubble.png");
   // background-size: cover;
   // background-repeat: no-repeat;
   width: 340px;
@@ -2020,7 +2024,7 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
   text-decoration: underline;
 }
 .one-side-img {
-  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/flyer-one-side.png");
+  // content: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png") !important;
   display: inline-block;
   height: 25px;
   vertical-align: middle;
@@ -2034,12 +2038,12 @@ span#ctl00_cphMainContent_ucDialCustomization_Duc21720_lblDial,
   color: #0c2b49;
 }
 .two-side-img {
-  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/flyer-two-sides.png");
+  // content: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png") !important;
   height: 25px;
   vertical-align: middle;
 }
 .exit-popup-flyer {
-  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/exit-popup.png");
+  // content: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png") !important;
   display: block;
   margin-right: 20px;
   margin-top: 30px;
@@ -2063,11 +2067,11 @@ div#disclaimer_box {
 }
 .direction-box input[value="landscape"] + img,
 .direction-box input[value="Landscape"] + img {
-  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/horizon.png") !important;
+  content: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/horizon.png") !important;
 }
 .direction-box input[value="portrait"] + img,
 .direction-box input[value="Portrait"] + img {
-  content: url("/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vertical.png") !important;
+  content: url("/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/vertical.png") !important;
 }
 .fill-to-size-text {
   color: #0c2b49;
