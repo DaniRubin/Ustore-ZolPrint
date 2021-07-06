@@ -791,6 +791,23 @@
     $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc24269_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc24269_cbxCheckbox");
 
 
+    // Refresh according to checkbox change state
+    $('#ctl00_cphMainContent_ucDialCustomization_Duc24597_cbxCheckbox').change(function () {
+      setTimeout(function () {
+        $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+      }, 150);
+    });
+    $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc24597_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc24597_cbxCheckbox");
+
+    // Refresh according to checkbox change state
+    $('#ctl00_cphMainContent_ucDialCustomization_Duc24638_cbxCheckbox').change(function () {
+      setTimeout(function () {
+        $('#ctl00_cphMainContent_ucDialCustomization_btnUpdateThumbnails').click();
+      }, 150);
+    });
+    $('<label for="ctl00_cphMainContent_ucDialCustomization_Duc24638_cbxCheckbox" class="checker">&#8203;</label>').insertAfter("#ctl00_cphMainContent_ucDialCustomization_Duc24638_cbxCheckbox");
+
+
 
     // Refresh according to checkbox change state
     $('#ctl00_cphMainContent_ucDialCustomization_Duc24354_cbxCheckbox').change(function () {
@@ -949,15 +966,24 @@
         autoRecalculate();
       });
 
+      function getType(content) {
+        if (content.includes('פוסטרים')) return 'poster'
+        if (content.includes('A5')) return 'flyerA5'
+        if (content.includes('A4')) return 'flyerA4'
+      }
+
       function alertEvents() {
         var content = $('#ctl00_containerPageProductName').html()
-        var productType = content.includes('פוסטרים') ? 'poster' : 'flyer'
+        var productType = getType(content)
         var newValue = $('#ctl00_cphMainContent_txtNumCopies').val()
         if (productType == 'poster') {
           if (newValue < 10) alert('מינימום הזמנה 10 יחידות')
-        } else if (productType == 'flyer') {
+        } else if (productType == 'flyerA5') {
           if (newValue < 100) alert('מינימום הזמנה 100 יחידות')
-          if (newValue % 10 != 0) alert('ניתן להזמין כמות בכפולות של 10 יחידות בלבד')
+          else if (newValue % 10 != 0) alert('ניתן להזמין כמות בכפולות של 10 יחידות בלבד')
+        } else if (productType == 'flyerA4') {
+          if (newValue < 50) alert('מינימום הזמנה 50 יחידות')
+          else if (newValue % 5 != 0) alert('ניתן להזמין כמות בכפולות של 5 יחידות בלבד')
         }
       }
       $('#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonFinish').click(alertEvents);
@@ -968,12 +994,14 @@
         //autoRecalculate(); 
         console.log("Changing to value - ", $('#ctl00_cphMainContent_txtNumCopies').val())
         $('.alert-more-money').hide()
+        $('.alert-more-money-A4').hide()
         $('.alert-not-substrctable').hide()
+        $('.alert-not-substrctable-A4').hide()
         $('.alert-more-money-poster').hide()
         $('#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonFinish').removeAttr('href')
 
         var content = $('#ctl00_containerPageProductName').html()
-        var productType = content.includes('פוסטרים') ? 'poster' : 'flyer'
+        var productType = getType(content)
         var newValue = $('#ctl00_cphMainContent_txtNumCopies').val()
 
 
@@ -993,7 +1021,7 @@
             }
           }, 600);
         }
-        else if (productType == 'flyer') {
+        else if (productType == 'flyerA5') {
           setTimeout(() => {
             var newValue = $('#ctl00_cphMainContent_txtNumCopies').val()
             if (newValue < 100) {
@@ -1005,6 +1033,25 @@
             else {
               setTimeout(function () {
                 if (newValue >= 100 && newValue % 10 == 0) {
+                  $('#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonFinish').attr("href", 'javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$cphMainContentFooter$WizardStepsNextPrev1$ButtonFinish", "", true, "", "", false, true))')
+                  autoRecalculate()
+                }
+              }, 10)
+            }
+          }, 600);
+        }
+        else if (productType == 'flyerA4') {
+          setTimeout(() => {
+            var newValue = $('#ctl00_cphMainContent_txtNumCopies').val()
+            if (newValue < 50) {
+              $('.alert-more-money-A4').show()
+            }
+            else if (newValue % 5 != 0) {
+              $('.alert-not-substrctable-A4').show()
+            }
+            else {
+              setTimeout(function () {
+                if (newValue >= 50 && newValue % 5 == 0) {
                   $('#ctl00_cphMainContentFooter_WizardStepsNextPrev1_ButtonFinish').attr("href", 'javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$cphMainContentFooter$WizardStepsNextPrev1$ButtonFinish", "", true, "", "", false, true))')
                   autoRecalculate()
                 }
@@ -1049,7 +1096,7 @@
     var ref = window.location.href;
     if (ref.includes("login")) {
       setTimeout(function () {
-        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="${storeName}he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="${storeName}he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="${storeName}he-IL/pages/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="${storeName}he-IL/pages/FlyerA5/">פלייר</a>      </div>      <div class="right-icons">        <div id="make-contact"><a class="link_top" href="${storeName}he-IL/pages/Contact/">צרו קשר</a>        <div class="separator"></div></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="${storeName}he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
+        $("#divWebEnhancerButton").append(`<div class="sheader">  <div class="main-wrapper">    <div class="sheader-stripe" draweropen="false">      <div class="logo-wrapper">        <a href="${storeName}he-IL/home/">          <div class="logo-container"><img class="logo" src="/ustorethemes/ZolPrint//assets/images/logo.png" alt="logo">          </div>        </a>      </div>      <div class="left-icons"><a id="homeLink" class="link_top" href="${storeName}he-IL/home/">דף הבית</a>        <div class="separator"></div><a id="posterLink" class="link_top" href="${storeName}he-IL/pages/Poster/">פוסטר</a>        <div class="separator"></div><a id="flyerLink" class="link_top" href="${storeName}he-IL/pages/FlyerA5/">פלייר A5</a><div class="separator"></div><a id="flyerLink" class="link_top" href="${storeName}he-IL/pages/FlyerA4/">פלייר A4</a>      </div>      <div class="right-icons">        <div id="make-contact"><a class="link_top" href="${storeName}he-IL/pages/Contact/">צרו קשר</a>        <div class="separator"></div></div>        <div class="signin-img">          <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/user-icon.png" alt="user-icon">        </div>        <div class="separator"></div>        <div class="cart">          <a href="${storeName}he-IL/cart/">            <img class="cart-icon" src="/ustorethemes/ZolPrint//assets/images/shop-icon.png" alt="cart-icon">          </a>        </div>      </div>    </div>  </div>  <div class="header_bottom"></div></div>`);
         $(".RegisterLink").parent().remove();
         $("#tblRegistration").addClass("register-block-legacy");
         $(".LoginMaster").addClass("login-page-legacy");
@@ -1108,22 +1155,29 @@
          לחצו כאן להעלאת הקובץ</div> \
         <div class="upload_file_text_checked">הקובץ הועלה בהצלחה</div></div>')
 
-      if (content.includes('פלייר A5')) {
+      if (content.includes('פלייר A5') || content.includes('פלייר A4')) {
         console.log("Flyer page")
         PAGE_TYPE = 'FLYER'
-        if ($('.subTitleProductNameExists').length) $('#ctl00_containerPageProductName').html("הזמנת פליירים");
-        else $('.subtitleProductName').remove();
+        if ($('.subTitleProductNameExists').length) {
+          if (content.includes('פלייר A5')) $('#ctl00_containerPageProductName').html("הזמנת פליירים A5");
+          if (content.includes('פלייר A4')) $('#ctl00_containerPageProductName').html("הזמנת פליירים A4");
+        } else $('.subtitleProductName').remove();
 
         $('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial .Error').hide()
         $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png"/> <div class="one-side-flyer"><img class="one-side-img" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png"/>  <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A5 </div></div><div class="two-side-flyer"><img class="two-side-img"  src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png"/>  <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A5 </div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24267_lblDial')
 
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial .Error').hide()
+        $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png"/> <div class="one-side-flyer"><img class="one-side-img" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png"/>  <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A5 </div></div><div class="two-side-flyer"><img class="two-side-img"  src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png"/>  <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A5 </div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial')
+
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc24595_lblDial .Error').hide()
+        $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png"/> <div class="one-side-flyer"><img class="one-side-img" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png"/>  <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A4 </div></div><div class="two-side-flyer"><img class="two-side-img"  src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png"/>  <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A4 </div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24595_lblDial')
+
+        $('#ctl00_cphMainContent_ucDialCustomization_Duc24636_lblDial .Error').hide()
+        $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png"/> <div class="one-side-flyer"><img class="one-side-img" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png"/>  <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A4 </div></div><div class="two-side-flyer"><img class="two-side-img"  src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png"/>  <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A4 </div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24636_lblDial')
+
 
         $('<div class="cover-popup"></div>').insertBefore('#fullpage')
 
-
-        $('#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial .Error').hide()
-        // $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer"><div class="one-side-flyer"><img class="one-side-img"/><div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A5</div></div><div class="two-side-flyer"><img class="two-side-img"/><div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A5 </div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial')
-        $('<div class="info-button"></div><div class="info-explain-bubble"><img class="exit-popup-flyer" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/exit-popup.png"/> <div class="one-side-flyer"><img class="one-side-img" src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-one-side.png"/>  <div class="one-side-explain"><span class="flyer-explain-header">לפלייר חד צדדי</span><br/> יש להעלות תמונה או PDF עם עמוד אחד בגודל A5 </div></div><div class="two-side-flyer"><img class="two-side-img"  src="/ustoreThemeCustomizations/8b190a36-ce5a-46fe-8cef-0c3cac77f5e3/Published/Assets/flyer-two-sides.png"/>  <div class="two-side-explain"><span class="flyer-explain-header">לפלייר דו צדדי</span><br/> יש להעלות PDF עם &emsp;&emsp;&emsp;&emsp;&emsp;  שני עמודים בגודל A5 </div></div></div>').insertBefore('#ctl00_cphMainContent_ucDialCustomization_Duc24352_lblDial')
 
 
 
@@ -1191,14 +1245,24 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
+
+    function getType(content) {
+      if (content.includes('פוסטרים')) return 'poster'
+      if (content.includes('A5')) return 'flyerA5'
+      if (content.includes('A4')) return 'flyerA4'
+    }
+
     setTimeout(() => {
       var content = $('#ctl00_containerPageProductName').html()
-      var productType = content.includes('פוסטרים') ? 'poster' : 'flyer'
-      if (productType == 'flyer') $('<div class="order-conditions">* מינימום להזמנה 100 יחידות.<br/>** ניתן להזמין כמות בכפולות של 10 יחידות בלבד.</div>').insertBefore('#tblNumCopies')
+      var productType = getType(content)
+      if (productType == 'flyerA5') $('<div class="order-conditions">* מינימום להזמנה 100 יחידות.<br/>** ניתן להזמין כמות בכפולות של 10 יחידות בלבד.</div>').insertBefore('#tblNumCopies')
+      if (productType == 'flyerA4') $('<div class="order-conditions">* מינימום להזמנה 50 יחידות.<br/>** ניתן להזמין כמות בכפולות של 5 יחידות בלבד.</div>').insertBefore('#tblNumCopies')
       if (productType == 'poster') $('<div class="order-conditions">* מינימום להזמנה 10 יחידות.</div>').insertBefore('#tblNumCopies')
       $('<div class="order-alert alert-more-money">מינימום הזמנה 100 יחידות</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
+      $('<div class="order-alert alert-more-money-A4">מינימום הזמנה 50 יחידות</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
       $('<div class="order-alert alert-more-money-poster">מינימום הזמנה 10 יחידות</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
       $('<div class="order-alert alert-not-substrctable">ניתן להזמין כמות בכפולות של 10 יחידות בלבד</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
+      $('<div class="order-alert alert-not-substrctable-A4">ניתן להזמין כמות בכפולות של 5 יחידות בלבד</div>').insertBefore('#ctl00_cphMainContent_lblQuantityRange')
       // $('.finish a img').attr('src', '/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/cart-icon.png')
       // $('.next a img').attr('src', '/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector.png')
       // $('.back a img').attr('src', '/ustoreThemeCustomizations/7cfea4c4-7b1e-4eae-bede-34a9e7487110/Published/Assets/vector-back.png')

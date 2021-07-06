@@ -1,11 +1,10 @@
 <script type="text/javascript">
+    var propsName = 'FlyerA5';
 
     var clonedElm = $('.subtitleProductName').clone();
     var parentElm = $('.container').parent();
     $(clonedElm).prependTo(parentElm);
     $('.subtitleProductName').eq(1).remove();
-    $('.subtitleProductName').html("הזמנת פוסטרים");
-
 
     if ($("#fullpage").text().includes('₪') || $('.container').text().includes('₪')) {
         setTimeout(function () {
@@ -32,8 +31,9 @@
 
     $('.beforePriceGap').parent().parent().remove();
 
-
-    $("#ctl00_cphMainContent_ctl09_tdProof").parent().prepend('<td class="desc"><p>לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג<br>מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים<br>דקים בנראות הסופית של הפוסטר המודפס.</p></td>');
+    if (propsName == 'Poster') $("#ctl00_cphMainContent_ctl09_tdProof").parent().prepend('<td class="desc"><p>לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג<br>מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים<br>דקים בנראות הסופית של הפוסטר המודפס.</p></td>');
+    if (propsName == 'FlyerA5') $("#ctl00_cphMainContent_ctl09_tdProof").parent().prepend('<td class="desc"><p>לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג<br>מגבולות ההדפסה של הפלייר. זכרו שזוהי המחשה ועשויים להיות הבדלים<br>דקים בנראות הסופית של הפלייר המודפס.</p></td>');
+    if (propsName == 'FlyerA4') $("#ctl00_cphMainContent_ctl09_tdProof").parent().prepend('<td class="desc"><p>לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג<br>מגבולות ההדפסה של הפלייר. זכרו שזוהי המחשה ועשויים להיות הבדלים<br>דקים בנראות הסופית של הפלייר המודפס.</p></td>');
 
     $('.desc').parent().addClass('approve');
 
@@ -55,7 +55,8 @@
     $('#OrderFinalStep_PriceReview_PricePerUnit').find(".FormField").eq(0).html(beforeTax + " ₪");
 
     if ($(window).width() < 456) {
-        $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפוסטר המודפס");
+        if (propsName == 'Poster') $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפוסטר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפוסטר המודפס");
+        if (propsName == 'FlyerA5') $('.desc p').html("לפני שממשיכים כדאי לוודא שהעיצוב שהעלתם עונה לצרכים שלכם ואינו חורג מגבולות ההדפסה של הפלייר. זכרו שזוהי המחשה ועשויים להיות הבדלים דקים בנראות הסופית של הפלייר המודפס");
     }
 
 
